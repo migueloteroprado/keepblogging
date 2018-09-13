@@ -1,0 +1,33 @@
+{
+  "name": "keepblogging",
+  "version": "1.0.0",
+  "description": "A blog of articles of different themes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "start": "webpack-dev-server --mode=development --hot --inline",
+    "eslint": "node_modules/.bin/eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/migueloteroprado/keepblogging.git"
+  },
+  "author": "Miguel Otero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/migueloteroprado/keepblogging/issues"
+  },
+  "homepage": "https://github.com/migueloteroprado/keepblogging#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.18.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
+  }
+}
