@@ -3,7 +3,9 @@ module.exports = {
   plugins: ["import"],
   rules: {
     "comma-dangle": ["error", "never"],
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "indent": [2, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }],
+    "no-tabs": 0
   },
   env: {
     browser: true,

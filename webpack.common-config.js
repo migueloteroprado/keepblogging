@@ -3,7 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Dotenv = require('dotenv-webpack');
 
 module.exports = {
-	entry: ['babel-polyfill', path.join(__dirname, 'src', 'index')],
+	entry: ['babel-polyfill', path.join(__dirname, 'src', 'pages', 'articles', 'index')],
 	output: {
 		filename: 'bundle[hash].js',
 		path: path.resolve(__dirname, 'dist')
@@ -12,7 +12,7 @@ module.exports = {
 		new Dotenv(),
 		new HtmlWebpackPlugin({
 			title: 'Keep Blogging',
-			template: path.join(__dirname, 'src', 'pages', 'index', 'index.html'),
+			template: path.join(__dirname, 'src', 'pages', 'articles', 'index.html'),
 			minify: {
 				collapseWhitespace: true
 			}
