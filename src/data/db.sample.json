@@ -1,0 +1,112 @@
+{
+	"categories": [
+		{
+			"id": 1,
+			"name": "Art"
+		},
+		{
+			"id": 2,
+			"name": "Technology"
+		},
+		{
+			"id": 3,
+			"name": "Science"
+		},
+		{
+			"id": 4,
+			"name": "Business"
+		},
+		{
+			"id": 5,
+			"name": "Culture"
+		},
+		{
+			"id": 6,
+			"name": "Politics"
+		},
+		{
+			"id": 7,
+			"name": "Music"
+		},
+		{
+			"id": 8,
+			"name": "Sports"
+		},
+		{
+			"id": 9,
+			"name": "Politics"
+		}
+	],
+	"users": [
+		{
+			"id": 1,
+			"name": "Miguel",
+			"email": "miguelitri@gmail.com",
+			"picture": "http://"
+		},
+		{
+			"id": 2,
+			"name": "User 2",
+			"email": "mail@server.com",
+			"picture": "http://"
+		}
+	],
+	"articles": [
+		{
+			"id": 1,
+			"category": 1,
+			"author": 1,
+			"title": "This is the Article nº 1",
+			"image": "",
+			"video": "",
+			"summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+			"body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
+			"timestamp": "2018-09-09 12:25:36",
+			"like": true
+		},
+		{
+			"id": 2,
+			"category": 2,
+			"author": 2,
+			"title": "This is the Article nº 1",
+			"image": "",
+			"video": "",
+			"summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+			"body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
+			"timestamp": "2018-09-09 12:25:36",
+			"like": true
+		},
+		{
+			"id": 3,
+			"category": 1,
+			"author": 2,
+			"title": "This is the Article nº 1",
+			"image": "",
+			"video": "",
+			"summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+			"body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
+			"timestamp": "2018-09-09 12:25:36",
+			"like": true
+		},
+		{
+			"id": 4,
+			"category": 3,
+			"author": 2,
+			"title": "This is the Article nº 1",
+			"image": "",
+			"video": "",
+			"summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+			"body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
+			"timestamp": "2018-09-09 12:25:36",
+			"like": true
+		}
+	],
+	"comments": [
+		{
+			"id": 1,
+			"author": 1,
+			"article": 1,
+			"text": "Comment for article nº 1"
+		}
+	]
+}
