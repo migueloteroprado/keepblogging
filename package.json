@@ -19,13 +19,23 @@
     "url": "https://github.com/migueloteroprado/keepblogging/issues"
   },
   "homepage": "https://github.com/migueloteroprado/keepblogging#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "babel-polyfill": "^6.26.0",
+    "dotenv-webpack": "^1.5.7"
+  },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
+    "ejs": "^2.6.1",
+    "ejs-html-loader": "^3.1.0",
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
