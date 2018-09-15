@@ -1,1 +1,23 @@
 @import 'utils';
+
+$primary-color: #5566ff;
+$link-color: #1133cc;
+$white: #fafafa;
+
+$font-size-xxxl: 36;
+$font-size-xxl: 24;
+$font-size-xl: 20;
+$font-size-l: 16;
+$font-size: 14;
+$font-size-xs: 10;
+$font-size-xxs: 8;
+
+$font-family: 'PT Serif', serif;
+$font-family-main: 'Poppins', sans-serif;
+
+
+// Breakpoints
+$breakpoint-tablet-portrait: 600px;
+$breakpoint-tablet-landscape: 900px;
+$breakpoint-desktop: 1200px;
+

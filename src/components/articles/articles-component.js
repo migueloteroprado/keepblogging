@@ -12,11 +12,11 @@ const loadArticles = (articlesJSON, articles) => {
 	}
 };
 
-export const updateArticles = () => {
+export const updateArticles = (categoryId) => {
 	const articleServiceInstance = new ArticleService();
 	const articles = document.getElementById('articles');
 	articles.innerHTML = '<i class="fas fa-spinner fa-spin fa-2x"></i>';
-	articleServiceInstance.getArticles().then((articlesJSON) => {
+	articleServiceInstance.getArticles({ category: categoryId }).then((articlesJSON) => {
 		articles.innerHTML = '';
 		loadArticles(articlesJSON, articles);
 	}).catch((error) => {
@@ -25,9 +25,9 @@ export const updateArticles = () => {
 	});
 };
 
-export const createArticles = () => {
+export const createArticles = ({ categoryId }) => {
 	const articles = document.getElementById('articles');
-	updateArticles();
+	updateArticles(categoryId);
 	return articles;
 };
 

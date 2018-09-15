@@ -1,0 +1,91 @@
+@import "~styles/settings.scss";
+@import "~styles/layout.scss";
+
+header {
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: 0 20px;
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      color: $primary-color;
+    }
+
+    .logo {
+      padding-left: 5px;
+      height: 40px;
+    }
+	}
+	
+  .menu {
+    text-align: right;
+    display: flex;
+
+    a {
+      text-transform: uppercase;
+      font-weight: bold;
+      text-decoration: none;
+      color: $link-color;
+      @include fontSize($font-size-xl);
+      padding: 20px 10px;
+
+      &:hover {
+        color: lighten($link-color, 25%);
+      }
+
+      display: none;
+
+      &.hamburger-icon {
+        display: block;
+        position: relative;
+      }
+      @include for-tablet-portrait {
+        display: block;
+        &.hamburger-icon {
+          display: none;
+        }
+      }
+      &.menu-active {
+        color: $white;
+      }
+    }
+  }
+
+  /*
+  .headphones-icon {
+    font-size: 2em;
+    color: $white;
+    padding-right: 5px;
+	}
+	*/
+
+  &.menu-open {
+    flex-direction: column;
+
+    .title-container {
+      width: 100%;
+    }
+
+    .menu {
+      flex-direction: column;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      &.hamburger-icon {
+        position: absolute;
+        top: 3px;
+        right: 30px;
+        display: block;
+      }
+    }
+  }
+}

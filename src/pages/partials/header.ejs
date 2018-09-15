@@ -1,10 +1,25 @@
-<div class="title-container">
-	<h1 id="title" class="title"></h1>
-</div>
-<div class="menu">
-	<a title="Home" id="home" href='/'>Home</a>
-	<a title="Categories" id="categories" href='/categories'>Categories<a/>
+<header>
+	<div class="title-container">
+		<h1 id="title" class="title"></h1>
+	</div>
+	<div class="header-wrapper">
+		<div class="menu">
+			<a title="Home" id="home" href="/">Home</a>
+			<a title="Art" id="art" href="/?category=1">Art</a>
+			<a title="Technology" id="technology" href="/?category=2">Technology</a>
+			<a title="Science" id="science" href="/?category=3">Art</a>
+			<a title="Music" id="music" href="/?category=4">Music</a>
+			<a title="More..." id="more" href='/categories'>More...<a/>
+		</div>	
+		<div class="user-links">
+			<a class="register" href="/register">Register</a>
+			<a class="sign-in" href="/sign-in">Sign In</a>
+		</div>
+		<div class="search">
+			<%- include('../partials/search-form.ejs') %>
+		</div>
+	</div>
 	<a id="hamburger-icon" class="hamburger-icon" href="#">
 		<i class="fa fa-bars"></i>
 	</a>
-</div>
+</header>

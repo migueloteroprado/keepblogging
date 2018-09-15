@@ -37,6 +37,7 @@ export const createArticle = ({
 				</div>
 			</div>
 			<div class="article-timestamp">${timestamp}</div>
+			<hr>
 		</div>
   `;
 

@@ -26,7 +26,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(['dist']),
     new CriticalPlugin({
-      src: path.join(__dirname, 'src', 'pages', 'index', 'index.html'),
+      src: path.join(__dirname, 'src', 'pages', 'articles', 'index.html'),
       inline: true,
       minify: true,
       dest: path.join(__dirname, 'dist', 'index.html')

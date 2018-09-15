@@ -1,3 +1,5 @@
+import { sleep } from 'utils/utils';
+
 class APIService {
 	constructor() {
 		this.baseUrl = process.env.API_URL;
@@ -5,6 +7,7 @@ class APIService {
 
 	async get(uri) {
 		try {
+      await sleep(1000);
 			const response = await fetch(`${this.baseUrl}${uri}`);
 			if (!response.ok) {
 				throw Error(response.statusText);

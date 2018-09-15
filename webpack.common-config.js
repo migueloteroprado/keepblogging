@@ -2,21 +2,50 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Dotenv = require('dotenv-webpack');
 
+var page = function({ title, template, chunks, filename }) {
+  return new HtmlWebpackPlugin(
+    {
+      title: title,
+      template: template,
+      chunks: chunks,
+      minify: {
+        collapseWhitespace: true
+      },
+      filename: filename
+    }
+  )
+}
+
 module.exports = {
-	entry: ['babel-polyfill', path.join(__dirname, 'src', 'pages', 'articles', 'index')],
+	entry: {
+		articles: ['babel-polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'articles', 'index')],
+		article: ['babel-polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'article', 'index')],
+		categories: ['babel-polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'categories', 'index')]
+	},
 	output: {
-		filename: 'bundle[hash].js',
+		filename: '[name][hash].js',
 		path: path.resolve(__dirname, 'dist')
 	},
 	plugins: [
 		new Dotenv(),
-		new HtmlWebpackPlugin({
-			title: 'Keep Blogging',
-			template: path.join(__dirname, 'src', 'pages', 'articles', 'index.html'),
-			minify: {
-				collapseWhitespace: true
-			}
-		})
+    page({
+      title: 'Keep Blogging',
+      template: path.join(__dirname, 'src', 'pages', 'articles', 'index.html'),
+      chunks: ['articles'],
+      filename: path.resolve(__dirname, 'dist', 'index.html')
+		}),
+    page({
+      title: 'Article',
+      template: path.join(__dirname, 'src', 'pages', 'article', 'index.html'),
+      chunks: ['article'],
+      filename: path.resolve(__dirname, 'dist', 'article', 'index.html')
+		}),	
+    page({
+      title: 'Categories',
+      template: path.join(__dirname, 'src', 'pages', 'categories', 'index.html'),
+      chunks: ['categories'],
+      filename: path.resolve(__dirname, 'dist', 'categories', 'index.html')
+		}),			
 	],
 	module: {
     rules: [

@@ -1,0 +1,14 @@
+@import 'normalize';
+@import '~styles/utils';
+@import '~styles/settings';
+
+
+p, div {
+  font-family: $font-family;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
