@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const appendComponent = (parent, components) => {
 	components.forEach((component) => {
 		parent.appendChild(component);
@@ -5,6 +7,17 @@ export const appendComponent = (parent, components) => {
 };
 
 export const sleep = time => new Promise(response => setTimeout(response, time));
+
+export const getFormatedDate = (date) => {
+	const milisecsInDay = 24 * 60 * 60 * 1000;
+	const time = new Date(moment(date, 'YYYY-MM-DD hh:mm:ss')).getTime();
+	const diff = (Date.now() - time);
+	// check if time difference is greater than one day
+	if (diff < milisecsInDay) {
+		return moment(date, 'YYYY-MM-DD hh:mm:ss').fromNow();
+	}
+	return moment(date).format('YYYY-MM-DD');
+};
 
 export const reportValidity = (form) => {
 	if (HTMLFormElement.prototype.reportValidity) {

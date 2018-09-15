@@ -1,5 +1,15 @@
-export const createArticle = ({
-	id, category, title, user, imageURL, video, summary, timestamp, like
+import { getFormatedDate } from 'utils/utils';
+
+export const createArticle = ({ 
+	id,
+	category,
+	title,
+	user,
+	imageURL,
+	video,
+	summary,
+	timestamp,
+	commentsNumber
 } = {
 	id: 0,
 	category: { name: 'No category' },
@@ -9,7 +19,7 @@ export const createArticle = ({
 	video: '',
 	summary: 'No content',
 	timestamp: '2000-01-01 00:00:00',
-	like: false
+	commentsNumber: 0
 }) => {
 	const article = document.createElement('article');
 	article.classList.add('article');
@@ -18,9 +28,6 @@ export const createArticle = ({
 			<a class="article-title" href="/article/?id=${id}">${title}</a>
 		</header>
 		<div class="article-content">
-			<div class="article-like">
-				${like}
-			</div>
 			<div class="article-category">
 				${category.name}
 			</div>
@@ -36,7 +43,8 @@ export const createArticle = ({
 					<img src="${user.pictureURL}" alt="${user.name}" title="${user.name}"/>
 				</div>
 			</div>
-			<div class="article-timestamp">${timestamp}</div>
+			<div class="article-timestamp">${getFormatedDate(timestamp)}</div>
+			<div class="article-comments-number"><a href="/article?id=${id}">Comments: ${commentsNumber}</a></div>
 			<hr>
 		</div>
   `;

@@ -12,80 +12,99 @@ header {
   .title-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+		justify-content: center;
+		padding-right: 20px;
 
-    .title {
-      color: $primary-color;
+    a {
+			color: $primary-color;
+			text-decoration: none;
     }
 
     .logo {
-      padding-left: 5px;
+			padding-right: 5px;
+			color: $primary-color;
       height: 40px;
     }
 	}
+
+	.header-content-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	
-  .menu {
-    text-align: right;
-    display: flex;
+		.menu {
+			display: flex;
+		}
 
-    a {
-      text-transform: uppercase;
-      font-weight: bold;
-      text-decoration: none;
-      color: $link-color;
-      @include fontSize($font-size-xl);
-      padding: 20px 10px;
+		.user-links, .search {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-      &:hover {
-        color: lighten($link-color, 25%);
-      }
+		a {
+			text-transform: uppercase;
+			text-decoration: none;
+			color: $link-color;
+			@include fontSize($font-size-l);
+			padding: 20px 10px;
 
-      display: none;
+			&:hover {
+				color: lighten($link-color, 25%);
+			}
 
-      &.hamburger-icon {
-        display: block;
-        position: relative;
-      }
-      @include for-tablet-portrait {
-        display: block;
-        &.hamburger-icon {
-          display: none;
-        }
-      }
-      &.menu-active {
-        color: $white;
-      }
-    }
-  }
+			display: none;
 
-  /*
-  .headphones-icon {
-    font-size: 2em;
-    color: $white;
-    padding-right: 5px;
+			&.hamburger-icon {
+				display: block;
+				position: relative;
+			}
+			@include for-tablet-portrait {
+				display: block;
+				&.hamburger-icon {
+					display: none;
+				}
+			}
+			&.menu-active {
+				color: green;
+			}
+		}
+	
+		.logo {
+			font-size: 2em;
+			color: $primary-color;
+			padding-right: 5px;
+		}
+
+		&.menu-open {
+			flex-direction: column;
+	
+			.title-container {
+				width: 100%;
+	
+				.logo {
+					padding-top: 15px;
+				}
+			}
+	
+			.menu {
+				flex-direction: column;
+			}
+	
+			a {
+				display: block;
+				text-align: center;
+				&.hamburger-icon {
+					position: absolute;
+					top: 10px;
+					right: 20px;
+					display: block;
+				}
+			}
+		}			
+	}	
+
+	& .menu-open {
+		flex-direction: column;
 	}
-	*/
-
-  &.menu-open {
-    flex-direction: column;
-
-    .title-container {
-      width: 100%;
-    }
-
-    .menu {
-      flex-direction: column;
-    }
-
-    a {
-      display: block;
-      text-align: center;
-      &.hamburger-icon {
-        position: absolute;
-        top: 3px;
-        right: 30px;
-        display: block;
-      }
-    }
-  }
 }

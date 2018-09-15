@@ -16,7 +16,14 @@ export const updateArticles = (categoryId) => {
 	const articleServiceInstance = new ArticleService();
 	const articles = document.getElementById('articles');
 	articles.innerHTML = '<i class="fas fa-spinner fa-spin fa-2x"></i>';
-	articleServiceInstance.getArticles({ category: categoryId }).then((articlesJSON) => {
+	// get articles
+	articleServiceInstance.getArticles({ category: categoryId }).then(async (articlesJSON) => {
+		// get coments number for each article
+		const articlesData = articlesJSON;
+		for (let i = 0; i < articlesData.length; i++) {
+			const num = await articleServiceInstance.getCommentsNumber(articlesData[i].id);
+			articlesData[i].commentsNumber = num;
+		}
 		articles.innerHTML = '';
 		loadArticles(articlesJSON, articles);
 	}).catch((error) => {
