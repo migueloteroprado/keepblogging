@@ -24,17 +24,16 @@ const updateTitle = (title) => {
 };
 
 export const updateHeader = ({ title, active }) => {
+	let activeItem = active;
 	const query = queryString.parse(window.location.search);
 	const categoryId = query && query.category;
-	console.log(categoryId);
 	if (categoryId) {
-		active = `menu-category-${categoryId}`;
-		console.log(active);
+		activeItem = `menu-category-${categoryId}`;
 	}
 	updateTitle(title);
 	handleHamburgerClick();
 	removeActiveClass();
-	addActiveClass(active);
+	addActiveClass(activeItem);
 };
 
 export default {

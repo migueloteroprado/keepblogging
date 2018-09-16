@@ -7,9 +7,9 @@ class APIService {
 
 	async get(uri) {
 		try {
-			await sleep(200);
+			await sleep(500);
 
-      const response = await fetch(`${this.baseUrl}${uri}`);
+			const response = await fetch(`${this.baseUrl}${uri}`);
 
 			if (!response.ok) {
 				throw Error(response.statusText);

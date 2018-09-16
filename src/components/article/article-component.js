@@ -1,6 +1,6 @@
 import { getFormatedDate } from 'utils/utils';
 
-export const createArticle = ({ 
+export const createArticle = ({
 	id,
 	category,
 	title,

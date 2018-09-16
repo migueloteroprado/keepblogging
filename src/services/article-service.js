@@ -1,4 +1,3 @@
-
 import APIService from './API-service';
 
 export class ArticleService {
