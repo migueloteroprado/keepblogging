@@ -1,8 +1,8 @@
 @import 'utils';
 
-$primary-color: #5566ff;
-$link-color: #1133cc;
-$white: #fafafa;
+$primary-color: #555;
+$link-color: #444;
+$white: #f6f6f6;
 $gray: #a0a0a0;
 
 $font-size-xxxl: 36;
@@ -22,3 +22,9 @@ $breakpoint-tablet-landscape: 900px;
 $breakpoint-desktop: 1200px;
 
 $box-shadow-default: 1px 1px 3px 0px $gray;
+$box-shadow-bottom: -1px -1px 3px 0px $gray;
+
+$header-height-mobile: 55px;
+$header-height-tablet-portrait: 87px;
+$header-height-tablet-landscape: 55px;
+$footer-height: 50px;

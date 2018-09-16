@@ -1,21 +1,32 @@
-@import "~styles/settings.scss";
-@import "~styles/layout.scss";
+@import '~styles/settings.scss';
+@import '~styles/layout.scss';
 
-header {
+header.header-main {
+	position: inherit;
   display: flex;
   align-items: center;
 	justify-content: center;
 	font-family: $font-family-main;
   background-color: $white;
-  min-height: 55px;
+  min-height: $header-height-mobile;
 	padding: 0 20px;
 	box-shadow: $box-shadow-default;
 
 	@include for-tablet-portrait {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0; 		
+		height: $header-height-tablet-portrait;
 		flex-direction: column;
 		align-items: flex-start;
 	}
 	@include for-tablet-landscape {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0; 		
+		height: $header-height-tablet-landscape;
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
@@ -34,14 +45,16 @@ header {
 		justify-content: center;
 		padding-right: 20px;
 		min-height: 50px;
+		
 		width: 300px;
+		// white-space: nowrap;
 
 		.logo {
 			padding-right: 10px;
 			color: $primary-color;
 			height: 40px;
 			font-size: 1.6rem;
-			margin-top: 7px;
+			line-height: 2.5rem;
 		}		
 
 		.title {
@@ -79,6 +92,7 @@ header {
 
 		.menu, .user-links, .search {
 			width: 100%;
+			padding: 0px 20px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -88,10 +102,14 @@ header {
 				text-decoration: none;
 				color: $link-color;
 				@include fontSize($font-size);
+				font-weight: bold;
 				padding: 10px 10px;
 	
 				&:hover {
-					color: lighten($link-color, 25%);
+					color: darken($link-color, 25%);
+				}
+				&.menu-active {
+					color: green;
 				}
 			}
 		}
@@ -102,7 +120,7 @@ header {
 			@include for-tablet-portrait {
 				position: fixed;
 				top: 0px;
-				right: 10px;
+				right: 20px;
 				width: auto;
 				flex-direction: row;
 				justify-content: flex-end;
@@ -122,11 +140,15 @@ header {
 
 			.user-links {
 				width: auto;
+				padding-right: 0;
 				@include for-tablet-landscape {
 					width: 100%;
 				}
 				.sign-in {
 					white-space: nowrap;
+				}
+				.register {
+					padding-right: 0;
 				}
 			}
 		}
@@ -146,43 +168,50 @@ header {
 	}
 
 	&.menu-open {
-		display: flex;
-		flex-direction: column;
-	
-		.title-container {
-			width: 100%;
-		}
-		.header-content-wrapper {
-			display: flex;
-			width: 100%;
-			flex-direction: column;
-		}
-		.menu, .user-links, .search {
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			border-top: 1px solid transparentize($gray, 0.5);
-			border-bottom: 0;
-		}
-		.header-register-search {
+
+		@include for-mobile {
 			display: flex;
 			flex-direction: column;
-			padding: 5px 20px;
-			@include for-tablet-landscape {
-				flex-direction: row;
+		
+			.title-container {
+				width: 100%;
+			}
+			.header-content-wrapper {
+				display: flex;
+				width: 100%;
+				flex-direction: column;
+			}
+			.menu, .user-links, .search {
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				border-top: 1px solid transparentize($gray, 0.5);
+				border-bottom: 0;
+			}
+			.header-register-search {
+				display: flex;
+				flex-direction: column;
+				padding: 5px 20px;
+				@include for-tablet-landscape {
+					flex-direction: row;
+				}
 			}
 		}
-
 	}		
 	
 	#search-form {
 		display: flex;
+		width: 50%;
 		
 		.search-form-input {
 			width: 100px;
 			border: 1px solid transparentize($gray, 0.5);
 			border-radius: 3px;
 			padding: 4px;
+
+			@include for-mobile {
+				width: 100%;
+			}
 		}
 		button {
 			background: transparent;

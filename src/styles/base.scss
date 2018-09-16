@@ -1,14 +1,35 @@
 @import 'normalize';
 @import '~styles/utils';
 @import '~styles/settings';
+@import '~styles/layout';
 
 
 p, div {
   font-family: $font-family;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+.container-main {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0 auto;
+
+	@include for-tablet-portrait {
+		position: fixed;
+		top: $header-height-tablet-portrait;
+		bottom: $footer-height;
+		left: 0;
+		right: 0;
+		overflow: scroll;
+		width: 80%;
+	}
+
+	@include for-tablet-landscape {
+		top: $header-height-tablet-landscape;
+		width: 70%;
+		max-width: 1000px;
+	}
+
 }

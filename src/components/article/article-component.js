@@ -24,7 +24,7 @@ export const createArticle = ({
 	const article = document.createElement('article');
 	article.classList.add('article');
 	article.innerHTML = `
-		<header>
+		<header class="article-header">
 			<a class="article-title" href="/article/?id=${id}">${title}</a>
 		</header>
 		<div class="article-content">
