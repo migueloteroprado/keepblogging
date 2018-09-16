@@ -5,106 +5,192 @@ header {
   background-color: $white;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: 40px;
-  padding: 0 20px;
+  justify-content: center;
+  min-height: 55px;
+	padding: 0 20px;
+	box-shadow: $box-shadow-default;
+
+	@include for-tablet-portrait {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	@include for-tablet-landscape {
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	a {
+		display: flex;
+		color: $primary-color;
+		text-decoration: none;
+	}
 
   .title-container {
-    display: flex;
+		display: flex;
     align-items: center;
 		justify-content: center;
 		padding-right: 20px;
+		min-height: 50px;
+		width: 300px;
 
-    a {
+		.logo {
+			padding-right: 10px;
 			color: $primary-color;
-			text-decoration: none;
-    }
+			height: 40px;
+			font-size: 1.6rem;
+			margin-top: 7px;
+		}		
 
-    .logo {
-			padding-right: 5px;
-			color: $primary-color;
-      height: 40px;
-    }
+		.title {
+			margin: 10px 0;
+			@include fontSize($font-size-xl);
+			text-transform: uppercase;
+		}
+
+		@include for-tablet-portrait {
+			justify-content: flex-start;
+			padding-right: 0;
+			border-bottom: 1px solid #ddd;
+		}
+		@include for-tablet-portrait {
+			border: 0;
+		}
 	}
 
 	.header-content-wrapper {
-		display: flex;
+		display: none;
 		align-items: center;
 		justify-content: space-between;
-	
-		.menu {
+		width: 100%;
+
+		@include for-tablet-portrait {
 			display: flex;
+			flex-direction: column;
+			border-top: 1px solid #ccc;
 		}
 
-		.user-links, .search {
+		@include for-tablet-landscape {
+			flex-direction: row;
+			border: none;
+		}
+
+		.menu, .user-links, .search {
+			width: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-		}
 
-		a {
-			text-transform: uppercase;
-			text-decoration: none;
-			color: $link-color;
-			@include fontSize($font-size-l);
-			padding: 20px 10px;
-
-			&:hover {
-				color: lighten($link-color, 25%);
-			}
-
-			display: none;
-
-			&.hamburger-icon {
-				display: block;
-				position: relative;
-			}
-			@include for-tablet-portrait {
-				display: block;
-				&.hamburger-icon {
-					display: none;
-				}
-			}
-			&.menu-active {
-				color: green;
-			}
-		}
-	
-		.logo {
-			font-size: 2em;
-			color: $primary-color;
-			padding-right: 5px;
-		}
-
-		&.menu-open {
-			flex-direction: column;
-	
-			.title-container {
-				width: 100%;
-	
-				.logo {
-					padding-top: 15px;
-				}
-			}
-	
-			.menu {
-				flex-direction: column;
-			}
-	
 			a {
-				display: block;
-				text-align: center;
-				&.hamburger-icon {
-					position: absolute;
-					top: 10px;
-					right: 20px;
-					display: block;
+				text-transform: uppercase;
+				text-decoration: none;
+				color: $link-color;
+				@include fontSize($font-size);
+				padding: 10px 10px;
+	
+				&:hover {
+					color: lighten($link-color, 25%);
 				}
 			}
-		}			
-	}	
+		}
+		.header-register-search {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			@include for-tablet-portrait {
+				position: fixed;
+				top: 0px;
+				right: 10px;
+				width: auto;
+				flex-direction: row;
+				justify-content: flex-end;
+			}
+			@include for-tablet-landscape {
+				flex-direction: row;
+				position: inherit;
+				width: auto;
+			}
 
-	& .menu-open {
-		flex-direction: column;
+			.search {
+				padding: 15px;
+				@include for-tablet-portrait {
+					padding: 10px;
+				}
+			}
+
+			.user-links {
+				width: auto;
+				@include for-tablet-landscape {
+					width: 100%;
+				}
+				.sign-in {
+					white-space: nowrap;
+				}
+			}
+		}
 	}
+	
+	.hamburger-icon {
+		display: block;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		padding: 15px 20px;
+		@include fontSize($font-size-xl);
+
+		@include for-tablet-portrait {
+			display: none;
+		}
+	}
+
+	&.menu-open {
+		display: flex;
+		flex-direction: column;
+	
+		.title-container {
+			width: 100%;
+		}
+		.header-content-wrapper {
+			display: flex;
+			width: 100%;
+			flex-direction: column;
+		}
+		.menu, .user-links, .search {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-top: 1px solid transparentize($gray, 0.5);
+			border-bottom: 0;
+		}
+		.header-register-search {
+			display: flex;
+			flex-direction: column;
+			padding: 5px 20px;
+			@include for-tablet-landscape {
+				flex-direction: row;
+			}
+		}
+
+	}		
+	
+	#search-form {
+		display: flex;
+		
+		.search-form-input {
+			width: 100px;
+			border: 1px solid transparentize($gray, 0.5);
+			border-radius: 3px;
+			padding: 4px;
+		}
+		button {
+			background: transparent;
+			padding: 0;
+			border: none;
+			position: relative;
+			left: -20px;
+			color: $gray;
+		}
+	}
+		
 }
+

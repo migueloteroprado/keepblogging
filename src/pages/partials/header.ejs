@@ -1,26 +1,30 @@
 <header>
 	<div class="title-container">
-		<i class="fas fa-headphones-alt fa-2x logo"></i>
-		<a href="/"><h1 id="title" class="title"></h1></a>
+		<a href="/">
+			<i class="fas fa-glasses logo"></i>
+			<h1 id="title" class="title"></h1>
+		</a>
 	</div>
 	<div class="header-content-wrapper">
 		<div class="menu">
 			<a title="Home" id="home" href="/">Home</a>
 			<a title="Art" id="art" href="/?category=1">Art</a>
 			<a title="Technology" id="technology" href="/?category=2">Technology</a>
-			<a title="Science" id="science" href="/?category=3">Art</a>
+			<a title="Science" id="science" href="/?category=3">Science</a>
 			<a title="Music" id="music" href="/?category=4">Music</a>
-			<a title="More..." id="more" href='/categories'>More...<a/>
-		</div>	
-		<div class="user-links">
-			<a class="register" href="/register">Register</a>
-			<a class="sign-in" href="/sign-in">Sign In</a>
+			<a title="More..." id="more" href='/categories'>More...</a>
 		</div>
-		<div class="search">
-			<%- include('../partials/search-form.ejs') %>
+		<div class="header-register-search">	
+			<div class="search">
+				<%- include('../partials/search-form.ejs') %>
+			</div>
+			<div class="user-links">
+				<a class="sign-in" href="/sign-in">Sign In</a>
+				<a class="register" href="/register">Register</a>
+			</div>
 		</div>
-		<a id="hamburger-icon" class="hamburger-icon" href="#">
-			<i class="fa fa-bars"></i>
-		</a>
 	</div>
+	<a id="hamburger-icon" class="hamburger-icon" href="#">
+		<i class="fa fa-bars"></i>
+	</a>
 </header>
