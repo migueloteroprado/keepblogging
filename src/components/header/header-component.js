@@ -9,7 +9,7 @@ const addActiveClass = (active) => {
 };
 
 const handleHamburgerClick = () => {
-	const header = document.querySelector('.header-content-wrapper');
+	const header = document.querySelector('header');
 	const hamburgerLink = document.getElementById('hamburger-icon');
 	hamburgerLink.addEventListener('click', () => {
 		header.classList.toggle('menu-open');
