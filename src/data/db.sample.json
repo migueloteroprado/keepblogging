@@ -54,10 +54,10 @@
 	"articles": [
 		{
 			"id": 1,
-			"category": 1,
-			"author": 1,
+			"categoryId": 1,
+			"userId": 1,
 			"title": "This is the Article nº 1",
-			"image": "",
+			"imageURL": "http://ichef.bbci.co.uk/wwfeatures/wm/live/1600_640/images/live/p0/1x/8q/p01x8qtv.jpg",
 			"video": "",
 			"summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
 			"body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
@@ -66,10 +66,10 @@
 		},
 		{
 			"id": 2,
-			"category": 2,
-			"author": 2,
+			"categoryId": 2,
+			"userId": 2,
 			"title": "This is the Article nº 1",
-			"image": "",
+			"imageURL": "http://ichef.bbci.co.uk/wwfeatures/wm/live/1600_640/images/live/p0/1x/8q/p01x8qtv.jpg",
 			"video": "",
 			"summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
 			"body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
@@ -78,10 +78,10 @@
 		},
 		{
 			"id": 3,
-			"category": 1,
-			"author": 2,
+			"categoryId": 1,
+			"userId": 2,
 			"title": "This is the Article nº 1",
-			"image": "",
+			"imageURL": "http://ichef.bbci.co.uk/wwfeatures/wm/live/1600_640/images/live/p0/1x/8q/p01x8qtv.jpg",
 			"video": "",
 			"summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
 			"body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
@@ -90,10 +90,10 @@
 		},
 		{
 			"id": 4,
-			"category": 3,
-			"author": 2,
+			"categoryId": 3,
+			"userId": 2,
 			"title": "This is the Article nº 1",
-			"image": "",
+			"imageURL": "http://ichef.bbci.co.uk/wwfeatures/wm/live/1600_640/images/live/p0/1x/8q/p01x8qtv.jpg",
 			"video": "",
 			"summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
 			"body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
@@ -104,8 +104,8 @@
 	"comments": [
 		{
 			"id": 1,
-			"author": 1,
-			"article": 1,
+			"userId": 1,
+			"articleId": 1,
 			"text": "Comment for article nº 1"
 		}
 	]

@@ -6,10 +6,10 @@ export class ArticleService {
 		this.model = 'articles';
 	}
 
-	async getArticles({ category, filter } = { category: undefined, filter: '' }) {
+	async getArticles({ category, search } = { category: undefined, search: '' }) {
 		let queryString = '?_expand=category&_expand=user';
 		queryString += category ? `&categoryId=${category}` : '';
-		queryString += filter && filter.length > 0 ? `&q=${filter}` : '';
+		queryString += search && search.length > 0 ? `&q=${search}` : '';
 
 		const articles = await this.APIServiceInstance.get(this.model + queryString);
 

@@ -12,12 +12,12 @@ const loadArticles = (articlesJSON, articles) => {
 	}
 };
 
-export const updateArticles = (categoryId) => {
+export const updateArticles = ({ categoryId, search }) => {
 	const articleServiceInstance = new ArticleService();
 	const articles = document.getElementById('articles');
 	articles.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
 	// get articles
-	articleServiceInstance.getArticles({ category: categoryId }).then(async (articlesJSON) => {
+	articleServiceInstance.getArticles({ category: categoryId, search }).then(async (articlesJSON) => {
 		// get coments number for each article
 		const articlesData = articlesJSON;
 		for (let i = 0; i < articlesData.length; i++) {
@@ -32,9 +32,9 @@ export const updateArticles = (categoryId) => {
 	});
 };
 
-export const createArticles = ({ categoryId }) => {
+export const createArticles = ({ categoryId, search }) => {
 	const articles = document.getElementById('articles');
-	updateArticles(categoryId);
+	updateArticles({ categoryId, search });
 	return articles;
 };
 

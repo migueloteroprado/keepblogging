@@ -1,5 +1,16 @@
 import { createComments } from 'components/comments/comments-component';
 
+const isLiked = id => localStorage.getItem(`article-${id}`);
+
+const toggleLike = (id) => {
+  const likeValue = isLiked(id) === 'true' ? 'false' : 'true';
+  localStorage.setItem(`article-${id}`, likeValue);
+};
+
+const setInitialLikeValue = (likeButton, liked) => {
+  if (liked === 'true') likeButton.children[0].classList.add('fas');
+};
+
 export const updateArticleDetail = ({
 	title, user, body, id
 } = {
@@ -23,6 +34,15 @@ export const updateArticleDetail = ({
       <a title="back" class="back" href='javascript:history.back()'><- Go Back</a>
     </div>
   `;
+
+  const likeButton = document.getElementById('like-button');
+
+  setInitialLikeValue(likeButton, isLiked(id));
+
+  likeButton.addEventListener('click', () => {
+    likeButton.children[0].classList.toggle('fas');
+    toggleLike(id);
+  });
 	createComments({ articleId: id });
 };
 
