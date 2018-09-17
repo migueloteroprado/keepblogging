@@ -10,4 +10,3 @@ const search = query && query.search;
 updateHeader({ title: 'Keep Blogging', active: 'home' });
 
 createArticles({ categoryId, search });
-

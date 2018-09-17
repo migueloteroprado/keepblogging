@@ -1,14 +1,39 @@
-import { createComments } from 'components/comments/comments-component';
+import { createComments, updateComments } from 'components/comments/comments-component';
+import PubSub from 'pubsub-js';
 
 const isLiked = id => localStorage.getItem(`article-${id}`);
 
 const toggleLike = (id) => {
-  const likeValue = isLiked(id) === 'true' ? 'false' : 'true';
-  localStorage.setItem(`article-${id}`, likeValue);
+	const likeValue = isLiked(id) === 'true' ? 'false' : 'true';
+	localStorage.setItem(`article-${id}`, likeValue);
 };
 
 const setInitialLikeValue = (likeButton, liked) => {
-  if (liked === 'true') likeButton.children[0].classList.add('fas');
+	if (liked === 'true') likeButton.children[0].classList.add('fas');
+};
+
+const handleLike = (id) => {
+	const likeButton = document.getElementById('like-button');
+	setInitialLikeValue(likeButton, isLiked(id));
+	likeButton.addEventListener('click', () => {
+		likeButton.children[0].classList.toggle('fas');
+		toggleLike(id);
+	});
+};
+
+const handleCommentForm = () => {
+	const modal = document.getElementById('modal');
+	const containerMain = document.querySelector('.container-main');
+	const addCommentButton = document.querySelector('.button-add-comment');
+	const commentFormCancel = document.getElementById('comment-form-cancel');
+	addCommentButton.addEventListener('click', () => {
+		modal.classList.remove('hidden');
+		containerMain.classList.add('hidden');
+	});
+	commentFormCancel.addEventListener('click', () => {
+		modal.classList.add('hidden');
+		containerMain.classList.remove('hidden');
+	});
 };
 
 export const updateArticleDetail = ({
@@ -18,33 +43,51 @@ export const updateArticleDetail = ({
 }) => {
 	const article = document.getElementById('article-detail');
 	article.innerHTML = `
-    <div class="title-container">
+    <header class="title-container">
       <h2 title="Article title" class="article-detail-title">${title}</h2>
       <button id="like-button" class="like-button">
         <i class="far fa-heart"></i>
       </button>
+    </header>
+    <div class="article-detail-author">
+      ${user.name}
     </div>
-    <p title="Author" class="article-detail-author">${user.name}</p>
     <div class="article-detail-body">
       ${body}
     </div>
-    <div id="comments" class="comments">
-    </div>
+    <section class="comments-section">
+      <header>
+        <h2>Comments</h2>
+        <button class="button-add-comment">Add comment...</button>
+      </header>
+      <a name="comments">
+      <div id="comments" class="comments">
+      </div>
+    </section>
     <div>
-      <a title="back" class="back" href='javascript:history.back()'><- Go Back</a>
+      <a title="back" class="back" href='javascript:history.back()'><-- Go Back</a>
     </div>
   `;
 
-  const likeButton = document.getElementById('like-button');
+	handleLike(id);
 
-  setInitialLikeValue(likeButton, isLiked(id));
+	handleCommentForm();
 
-  likeButton.addEventListener('click', () => {
-    likeButton.children[0].classList.toggle('fas');
-    toggleLike(id);
-  });
 	createComments({ articleId: id });
+
+	// Go to comments directly if invoked from comments number in articles page
+	if (window.location.hash) {
+		const comments = document.getElementById('comments');
+		comments.scrollIntoView();
+	}
+
+	PubSub.subscribe('reload-comments', () => {
+		updateComments({ articleId: id });
+		document.getElementById('modal').classList.add('hidden');
+		document.querySelector('.container-main').classList.remove('hidden');
+	});
 };
+
 
 export default {
 	updateArticleDetail

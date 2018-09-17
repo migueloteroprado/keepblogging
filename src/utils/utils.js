@@ -8,15 +8,20 @@ export const appendComponent = (parent, components) => {
 
 export const sleep = time => new Promise(response => setTimeout(response, time));
 
-export const getFormatedDate = (date) => {
+export const getFormatedDateDiff = (stringDate) => {
 	const milisecsInDay = 24 * 60 * 60 * 1000;
-	const time = new Date(moment(date, 'YYYY-MM-DD hh:mm:ss')).getTime();
+	const time = new Date(moment(stringDate, 'YYYY-MM-DD HH:mm:ss')).getTime();
 	const diff = (Date.now() - time);
 	// check if time difference is greater than one day
 	if (diff < milisecsInDay) {
-		return moment(date, 'YYYY-MM-DD hh:mm:ss').fromNow();
+		return moment(stringDate, 'YYYY-MM-DD HH:mm:ss').fromNow();
 	}
-	return moment(date).format('YYYY-MM-DD');
+	return moment(stringDate).format('YYYY-MM-DD HH:mm:ss');
+};
+
+export const getStringDate = (time) => {
+	const result = moment(time).format('YYYY-MM-DD HH:mm:ss');
+	return result;
 };
 
 export const reportValidity = (form) => {

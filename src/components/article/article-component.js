@@ -1,4 +1,4 @@
-import { getFormatedDate } from 'utils/utils';
+import { getFormatedDateDiff } from 'utils/utils';
 
 export const createArticle = ({
 	id,
@@ -43,8 +43,8 @@ export const createArticle = ({
 					<img src="${user.pictureURL}" alt="${user.name}" title="${user.name}"/>
 				</div>
 			</div>
-			<div class="article-timestamp">${getFormatedDate(timestamp)}</div>
-			<div class="article-comments-number"><a href="/article?id=${id}">Comments: ${commentsNumber}</a></div>
+			<div class="article-timestamp">${getFormatedDateDiff(timestamp)}</div>
+			<div class="article-comments-number"><a href="/article?id=${id}#comments">Comments: ${commentsNumber}</a></div>
 			<hr>
 		</div>
   `;

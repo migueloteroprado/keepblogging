@@ -1,34 +1,34 @@
-import { getFormatedDate } from 'utils/utils';
+import { getFormatedDateDiff } from 'utils/utils';
 
 export const createComment = ({
 	articleId,
-	user,
-	text,
+	name,
+	email,
+	comment,
 	id,
 	timestamp
 } = {
 	articleId: 0,
-	userId: 0,
-	text: '',
+	name: '',
+	emaikl: '',
+	comment: '',
 	id: 0,
 	timestamp: ''
 }) => {
-	const comment = document.createElement('article');
-	comment.classList.add('comment');
-	comment.innerHTML = `
+	const commentContainer = document.createElement('article');
+	commentContainer.classList.add('comment');
+	commentContainer.innerHTML = `
 		<div class="comment-content">
-			${text}
+			${comment}
 		<div>
 		<div class="comment-author">
-			<div class="comment-author-name">${user.name}</div>
-			<div class="comment-author-picture">
-				<img src="${user.pictureURL}" alt="${user.name}" title="${user.name}"/>
-			</div>
+			<div class="comment-author-name">${name}</div>
+			<div class="comment-author-email">${email}</div>
 		</div>
-		<div class="article-timestamp">${getFormatedDate(timestamp)}</div>
+		<div class="comment-timestamp">${getFormatedDateDiff(timestamp)}</div>
   `;
 
-	return comment;
+	return commentContainer;
 };
 
 export default {

@@ -17,7 +17,10 @@ export const updateArticles = ({ categoryId, search }) => {
 	const articles = document.getElementById('articles');
 	articles.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
 	// get articles
-	articleServiceInstance.getArticles({ category: categoryId, search }).then(async (articlesJSON) => {
+	articleServiceInstance.getArticles({
+		category: categoryId,
+		search
+	}).then(async (articlesJSON) => {
 		// get coments number for each article
 		const articlesData = articlesJSON;
 		for (let i = 0; i < articlesData.length; i++) {
@@ -27,8 +30,8 @@ export const updateArticles = ({ categoryId, search }) => {
 		articles.innerHTML = '';
 		loadArticles(articlesJSON, articles);
 	}).catch((error) => {
-		console.log(error);
-		articles.innerHTML = 'There was an error, please reload';
+		console.log(error); // eslint-disable-line no-console
+		articles.innerHTML = 'There was an error loading articles, please reload';
 	});
 };
 
