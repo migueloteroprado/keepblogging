@@ -15,7 +15,7 @@ const loadArticles = (articlesJSON, articles) => {
 export const updateArticles = (categoryId) => {
 	const articleServiceInstance = new ArticleService();
 	const articles = document.getElementById('articles');
-	articles.innerHTML = '<i class="fas fa-spinner fa-spin fa-2x"></i>';
+	articles.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
 	// get articles
 	articleServiceInstance.getArticles({ category: categoryId }).then(async (articlesJSON) => {
 		// get coments number for each article

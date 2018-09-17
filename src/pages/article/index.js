@@ -10,10 +10,13 @@ const articleId = query && query.id;
 
 if (articleId) {
 	const article = document.getElementById('article-detail');
-	article.innerHTML = '<i class="fas fa-spinner fa-spin fa-2x"></i>';
+	article.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
 	articleServiceInstance.getArticle(articleId).then((articleJSON) => {
 		console.log(articleJSON);
 		updateArticleDetail(articleJSON);
+	}).catch((error) => {
+		console.log(error);
+		article.innerHTML = 'There was an error loading the article data, please reload';
 	});
 }
-updateHeader({ title: 'Article', active: '' });
+updateHeader({ title: 'Keep Blogging', active: '' });

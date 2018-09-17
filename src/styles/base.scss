@@ -23,13 +23,10 @@ p, div {
 		left: 0;
 		right: 0;
 		overflow: auto;
-		width: 80%;
 	}
 
 	@include for-tablet-landscape {
 		top: $header-height-tablet-landscape;
-		width: 70%;
-		max-width: 1000px;
 	}
 
 }

@@ -66,10 +66,7 @@ header.header-main {
 		@include for-tablet-portrait {
 			justify-content: flex-start;
 			padding-right: 0;
-			border-bottom: 1px solid #ddd;
-		}
-		@include for-tablet-portrait {
-			border: 0;
+			border: 0
 		}
 	}
 
@@ -141,14 +138,23 @@ header.header-main {
 			.user-links {
 				width: auto;
 				padding-right: 0;
+
+				@include for-mobile {
+					padding-right: 20px;
+				}
 				@include for-tablet-landscape {
 					width: 100%;
 				}
+
 				.sign-in {
 					white-space: nowrap;
 				}
+
 				.register {
 					padding-right: 0;
+					@include for-mobile {
+						padding-right: 10px;
+					}
 				}
 			}
 		}
@@ -186,7 +192,10 @@ header.header-main {
 				align-items: center;
 				justify-content: center;
 				border-top: 1px solid transparentize($gray, 0.5);
-				border-bottom: 0;
+				width: auto;
+			}
+			.menu{
+				width: 100%;
 			}
 			.header-register-search {
 				display: flex;
@@ -202,23 +211,25 @@ header.header-main {
 	#search-form {
 		display: flex;
 		width: 50%;
+		margin-right: 20px;
 		
 		.search-form-input {
-			width: 100px;
+			width: 120px;
+			@include fontSize($font-size);
 			border: 1px solid transparentize($gray, 0.5);
 			border-radius: 3px;
 			padding: 4px;
+			margin-right: -20px;
 
 			@include for-mobile {
 				width: 100%;
 			}
+
 		}
 		button {
 			background: transparent;
 			padding: 0;
 			border: none;
-			position: relative;
-			left: -20px;
 			color: $gray;
 		}
 	}

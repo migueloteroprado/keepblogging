@@ -1,0 +1,20 @@
+@import '~styles/layout.scss';
+
+.articles {
+	width: 100%;
+
+	@include for-tablet-portrait {
+		width: 80%;
+	}
+
+	@include for-tablet-landscape {
+		width: 70%;
+		max-width: 1000px;
+	}
+
+	.spinner {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+	}
+}

@@ -15,7 +15,7 @@ const loadComments = (commentsJSON, comments) => {
 export const updateComments = ({ articleId }) => {
 	const commentServiceInstance = new CommentService();
 	const comments = document.getElementById('comments');
-	comments.innerHTML = '<i class="fas fa-spinner fa-spin fa-2x"></i>';
+	comments.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
 	// get comments
 	commentServiceInstance.getComments({ article: articleId }).then(async (commentsJSON) => {
 		comments.innerHTML = '';
