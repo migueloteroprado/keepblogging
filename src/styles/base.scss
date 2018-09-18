@@ -8,6 +8,10 @@ p, div {
   font-family: $font-family;
 }
 
+.hidden {
+	display: none;
+}
+
 .container-main {
 	display: flex;
 	justify-content: center;

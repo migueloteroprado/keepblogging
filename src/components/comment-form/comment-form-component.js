@@ -50,7 +50,7 @@ const handleValidation = (formInputs) => {
 
 		input.addEventListener('blur', () => {
 			input.classList.remove('focus');
-			//addCustomValidation(input);
+			// addCustomValidation(input);
 			addErrorClass(input);
 		});
 	}

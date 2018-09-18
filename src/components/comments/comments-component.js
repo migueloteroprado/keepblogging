@@ -2,7 +2,7 @@ import { appendComponent } from 'utils/utils';
 import { CommentService } from 'services/comment-service';
 import { createComment } from 'components/comment/comment-component';
 
-const loadComments = (commentsJSON, comments, articleId) => {
+const loadComments = (commentsJSON, comments) => {
 	const updatedComments = comments;
 	if (commentsJSON.length === 0) {
 		updatedComments.innerHTML = 'No comments';

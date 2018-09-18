@@ -13,4 +13,22 @@ footer.footer {
   height: $footer-height;
 	padding: 0 20px;
 	box-shadow: $box-shadow-bottom;
+
+	.footer-title {
+		width: 100%;
+		text-align: center;
+	}
+
+	#btn-top {
+		font-size: 1rem;
+    position: fixed;
+    right: 10px;
+		cursor: pointer;
+		
+		&:hover {
+			color: red;
+		}
+	}
 }
+
+

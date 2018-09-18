@@ -7,7 +7,6 @@ class APIService {
 
 	async get(uri) {
 		try {
-
 			await sleep(300);
 
 			const response = await fetch(`${this.baseUrl}${uri}`);
@@ -24,7 +23,6 @@ class APIService {
 
 	async post(body, uri) {
 		try {
-
 			const response = await fetch(`${this.baseUrl}${uri}`, {
 				method: 'POST',
 				headers: {
