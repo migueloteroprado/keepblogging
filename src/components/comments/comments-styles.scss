@@ -1,0 +1,18 @@
+#comment-form {
+
+	.comment-form-field {
+
+		input, textarea {
+			border: 2px solid $primary-color;
+			outline: none;
+
+			&.error {
+				border-color: $error;
+			}
+
+			&.focus {
+				border-color: green;
+			}
+		}
+	}
+}

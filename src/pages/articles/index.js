@@ -7,6 +7,6 @@ const query = queryString.parse(window.location.search);
 const categoryId = query && query.category;
 const search = query && query.search;
 
-updateHeader({ title: 'Keep Blogging', active: 'home' });
+updateHeader({ title: 'KeepBlogging', active: 'home' });
 
 createArticles({ categoryId, search });

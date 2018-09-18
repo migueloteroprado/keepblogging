@@ -1,4 +1,5 @@
 import { createComments, updateComments } from 'components/comments/comments-component';
+import { createCommentForm } from 'components/comment-form/comment-form-component';
 import PubSub from 'pubsub-js';
 
 const isLiked = id => localStorage.getItem(`article-${id}`);
@@ -21,21 +22,6 @@ const handleLike = (id) => {
 	});
 };
 
-const handleCommentForm = () => {
-	const modal = document.getElementById('modal');
-	const containerMain = document.querySelector('.container-main');
-	const addCommentButton = document.querySelector('.button-add-comment');
-	const commentFormCancel = document.getElementById('comment-form-cancel');
-	addCommentButton.addEventListener('click', () => {
-		modal.classList.remove('hidden');
-		containerMain.classList.add('hidden');
-	});
-	commentFormCancel.addEventListener('click', () => {
-		modal.classList.add('hidden');
-		containerMain.classList.remove('hidden');
-	});
-};
-
 export const updateArticleDetail = ({
 	title, user, body, id
 } = {
@@ -55,15 +41,21 @@ export const updateArticleDetail = ({
     <div class="article-detail-body">
       ${body}
     </div>
+
     <section class="comments-section">
+
       <header>
         <h2>Comments</h2>
-        <button class="button-add-comment">Add comment...</button>
       </header>
-      <a name="comments">
+
+      <div id="comments-form-container">
+      </div>
+
       <div id="comments" class="comments">
       </div>
+
     </section>
+
     <div>
       <a title="back" class="back" href='javascript:history.back()'><-- Go Back</a>
     </div>
@@ -71,7 +63,7 @@ export const updateArticleDetail = ({
 
 	handleLike(id);
 
-	handleCommentForm();
+	createCommentForm({ articleId: id });
 
 	createComments({ articleId: id });
 
@@ -83,8 +75,6 @@ export const updateArticleDetail = ({
 
 	PubSub.subscribe('reload-comments', () => {
 		updateComments({ articleId: id });
-		document.getElementById('modal').classList.add('hidden');
-		document.querySelector('.container-main').classList.remove('hidden');
 	});
 };
 

@@ -14,8 +14,8 @@ if (articleId) {
 	articleServiceInstance.getArticle(articleId).then((articleJSON) => {
 		updateArticleDetail(articleJSON);
 	}).catch((error) => {
-		console.log(error); // eslint-disable-line no-console
+		console.log('Error:', error.message); // eslint-disable-line no-console
 		article.innerHTML = 'There was an error loading the article data, please reload';
 	});
 }
-updateHeader({ title: 'Keep Blogging', active: '' });
+updateHeader({ title: 'KeepBlogging', active: '' });

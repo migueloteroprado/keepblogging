@@ -47,7 +47,7 @@ export const createArticle = ({
 			<div class="article-comments-number"><a href="/article?id=${id}#comments">Comments: ${commentsNumber}</a></div>
 			<hr>
 		</div>
-  `;
+	`;
 
 	return article;
 };

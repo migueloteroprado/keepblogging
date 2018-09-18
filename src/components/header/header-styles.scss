@@ -60,7 +60,6 @@ header.header-main {
 		.title {
 			margin: 10px 0;
 			@include fontSize($font-size-xl);
-			text-transform: uppercase;
 		}
 
 		@include for-tablet-portrait {
