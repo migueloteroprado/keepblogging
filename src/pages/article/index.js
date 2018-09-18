@@ -1,8 +1,9 @@
 import { updateHeader } from 'components/header/header-component';
+import { configHeaderScroll } from 'utils/scroll';
 import { configGoTopButton } from 'components/footer/footer-component';
 import { updateArticleDetail } from 'components/article-detail/article-detail-component';
 import queryString from 'query-string';
-import ArticleService from 'services/article-service';
+import { ArticleService } from 'services/article-service';
 import 'styles/main.scss';
 
 const articleServiceInstance = new ArticleService();
@@ -20,4 +21,5 @@ if (articleId) {
 	});
 }
 updateHeader({ title: 'KeepBlogging', active: '' });
+configHeaderScroll();
 configGoTopButton();

@@ -1,4 +1,5 @@
 import { updateHeader } from 'components/header/header-component';
+import { configHeaderScroll } from 'utils/scroll';
 import { configGoTopButton } from 'components/footer/footer-component';
 import { createArticles } from 'components/articles/articles-component';
 import queryString from 'query-string';
@@ -8,6 +9,7 @@ const query = queryString.parse(window.location.search);
 const categoryId = query && query.category;
 const search = query && query.search;
 
-updateHeader({ title: 'KeepBlogging', active: 'home' });
+configHeaderScroll();
 configGoTopButton();
+updateHeader({ title: 'KeepBlogging', active: 'home' });
 createArticles({ categoryId, search });

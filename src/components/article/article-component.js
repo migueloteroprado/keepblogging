@@ -1,4 +1,4 @@
-import { getFormatedDateDiff } from 'utils/utils';
+import { getFormatedDateDiff } from 'utils/date';
 
 export const createArticle = ({
 	id,
@@ -32,11 +32,13 @@ export const createArticle = ({
 				${category.name}
 			</div>
 		</header>
-		<div class="article-content">
-			<a class="article-image" href="/article/?id=${id}">
-				<img src="${imageURL}"></img>
-			</a>
-			<div class="article-summary">${summary}</div>
+		<div class="article-content-wrapper">
+			<div class="article-content">
+				<a class="article-image" href="/article/?id=${id}">
+					<img src="${imageURL}"></img>
+				</a>
+				<div class="article-summary">${summary}</div>
+			</div>
 		</div>
 		<div class="article-footer">
 			<div class="article-author">

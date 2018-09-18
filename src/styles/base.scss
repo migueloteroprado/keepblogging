@@ -31,28 +31,13 @@ a {
 .container-main {
 	display: flex;
 	justify-content: center;
-	padding: 10px;
+	padding: 10px 10px $footer-height 10px;
+	padding-bottom: $footer-height;
 	width: 100%;
-	padding-bottom: $footer-height + 20px;;
 	box-sizing: border-box;
 	margin: 0 auto;
 	z-index: -1;
-
-	/*
 	@include for-tablet-portrait {
-		padding: 20px;
-		position: fixed;
-		top: $header-height-tablet-portrait;
-		bottom: $footer-height;
-		padding-bottom: 20px;
-		left: 0;
-		right: 0;
-		overflow: auto;
+		padding: 20px 20px $footer-height 20px;
 	}
-
-	@include for-tablet-landscape {
-		top: $header-height-tablet-landscape;
-	}
-	*/
-
 }

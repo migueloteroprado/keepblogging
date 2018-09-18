@@ -1,17 +1,17 @@
 @import '~styles/settings.scss';
 @import '~styles/layout.scss';
 
-
-.header-fixed {
+.fixed {
 	position: fixed;
+	z-index: 1;
 	top: 0;
 	left: 0;
 	right: 0;
 }
-.header-static {
+
+.static {
 	position: static;
 }
-
 
 .header-main {
   display: flex;
@@ -23,28 +23,6 @@
 	padding: 0 20px;
 	box-shadow: $box-shadow-default;
 
-	/*
-	@include for-tablet-portrait {
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0; 		
-		height: $header-height-tablet-portrait;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-	@include for-tablet-landscape {
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0; 		
-		height: $header-height-tablet-landscape;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
-	}
-	*/
-
 	@include for-tablet-portrait {
 		height: $header-height-tablet-portrait;
 		flex-direction: column;
@@ -56,7 +34,6 @@
 		justify-content: flex-start;
 		align-items: center;
 	}
-
 
 	a {
 		display: flex;
@@ -73,7 +50,6 @@
 		min-height: 50px;
 		
 		width: 300px;
-		// white-space: nowrap;
 
 		.logo {
 			padding-right: 10px;

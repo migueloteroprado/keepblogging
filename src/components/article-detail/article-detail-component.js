@@ -1,5 +1,6 @@
 import { createComments, updateComments } from 'components/comments/comments-component';
 import { createCommentForm } from 'components/comment-form/comment-form-component';
+import { getFormatedDateDiff } from 'utils/date';
 import PubSub from 'pubsub-js';
 
 const isLiked = id => localStorage.getItem(`article-${id}`);
@@ -23,24 +24,31 @@ const handleLike = (id) => {
 };
 
 export const updateArticleDetail = ({
-	title, user, body, id
+	title, user, body, id, timestamp
 } = {
-	title: 'No title', user: { name: 'No author' }, body: 'No content', id: 0
+	title: 'No title', user: { name: 'No author' }, body: 'No content', id: 0, timestamp: ''
 }) => {
 	const article = document.getElementById('article-detail');
 	article.innerHTML = `
     <header class="title-container">
-      <h2 title="Article title" class="article-detail-title">${title}</h2>
-      <button id="like-button" class="like-button">
-        <i class="far fa-heart"></i>
+      <h1 title="Article title" class="article-detail-title">${title}</h1>
+      <button id="like-button" class="like-button" title="toggle like">
+        <i class="far fa-thumbs-up"></i>
       </button>
     </header>
-    <div class="article-detail-author">
-      ${user.name}
-    </div>
     <div class="article-detail-body">
       ${body}
-    </div>
+		</div>
+		<div class="article-detail-footer">
+			<div class="article-detail-author">
+				<div class="article-detail-author-picture">
+					<img src="${user.imageURL}" alt="${user.name}" title="${user.name}"/>
+				</div>
+				<div class="article-detail-author-name">${user.name}</div>
+			</div>
+			<div class="article-detail-timestamp">${getFormatedDateDiff(timestamp)}</div>
+		</div>
+
     <section class="comments-section">
       <header>
         <h2>Comments</h2>
@@ -64,7 +72,7 @@ export const updateArticleDetail = ({
 	// Go to comments directly if invoked from comments number in articles page
 	if (window.location.hash) {
 		const comments = document.getElementById('comments');
-		comments.scrollIntoView();
+		comments.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
 	}
 
 	PubSub.subscribe('reload-comments', () => {

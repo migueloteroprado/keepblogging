@@ -10,7 +10,7 @@ export const configGoTopButton = () => {
 
 	// scroll event listener
 	window.addEventListener('scroll', () => {
-		if (window.pageYOffset > 10) {
+		if (window.pageYOffset > 50) {
 			btnTop.classList.remove('hidden');
 		} else {
 			btnTop.classList.add('hidden');

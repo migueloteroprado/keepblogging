@@ -1,4 +1,4 @@
-import { getFormatedDateDiff } from 'utils/utils';
+import { getFormatedDateDiff } from 'utils/date';
 
 export const createComment = ({
 	name,

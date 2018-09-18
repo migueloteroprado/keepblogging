@@ -25,24 +25,33 @@
     }
   }
 
-  .article-content {
+  .article-content-wrapper {
 
-    display:block;
+    display:block;   
 
-    .article-image {
+    .article-content {
 
-      img {
-        width: 50%;
-        float: left;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        border-radius: 5px;
+      .article-image {
+
+        img {
+          width: 40%;
+          float: left;
+          margin-right: 20px;
+          margin-bottom: 20px;
+          border-radius: 5px;
+  
+          @include for-tablet-portrait {
+            width: 50%;
+            max-width: 300px;
+          }
+        }
+  
       }
-
-    }
-
-    .article-summary {
-      padding: 0;
+  
+      .article-summary {
+        padding: 0;
+      }
+  
     }
   
   }
@@ -51,8 +60,8 @@
     clear: both;
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #ddd;
     padding-top: 20px;
+    border-top: 1px solid #ddd;
 
     .article-author {
 
@@ -94,11 +103,6 @@
 
   @include for-tablet-portrait {
     margin-bottom: 20px;
-  }
-
-  @include for-desktop {
-    width: calc(50% - 65px);
-    margin: 10px;
   }
   
 }

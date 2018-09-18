@@ -1,9 +1,5 @@
-import {
-	appendComponent,
-	reportValidity,
-	getFormData,
-	getStringDate
-} from 'utils/utils';
+import { appendComponent,	reportValidity,	getFormData } from 'utils/utils';
+import { getStringDate } from 'utils/date';
 import PubSub from 'pubsub-js';
 import { CommentService } from '../../services/comment-service';
 
@@ -95,19 +91,21 @@ export const createCommentForm = ({ articleId }) => {
 	const form = document.createElement('div');
 	form.innerHTML = `
 		<div>
-			<h2>Add a comment...</h2>
+			<h3>Add a comment...</h3>
 		</div>
 		<form id="comment-form">
-			<div class="comment-form-field">
-				<label for="name">Name *</label>
-				<input class="comment-input" type="text" name="name" id="comment-form-name" required>
-			</div>
-			<div class="comment-form-field">
-				<label for="email">Email *</label>
-				<input class="comment-input" type="email" name="email" id="comment-form-email" required>
+			<div class="form-fields-wrapper">
+				<div class="comment-form-field">
+					<label for="name">Name*</label>
+					<input class="comment-input" type="text" name="name" id="comment-form-name" placeholder="Enter your name" required>
+				</div>
+				<div class="comment-form-field">
+					<label for="email">Email*</label>
+					<input class="comment-input" type="email" name="email" id="comment-form-email" placeholder="Enter your email" required>
+				</div>
 			</div>
 			<div class="comment-form-field comment-textarea">
-				<label for="comment">Comment *</label>
+				<label for="comment">Comment*</label>
 				<textarea class="comment-input" name="comment" id="comment-form-comment" maxlength="500" required
 					placeholder="Write a comment, maximum 500 characters"></textarea>
 			</div>
