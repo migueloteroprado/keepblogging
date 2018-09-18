@@ -1,0 +1,42 @@
+.article {
+
+  padding: 20px;
+  border: 1px solid #eee;
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  .article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .article-title {
+      @include fontSize($font-size-xl);
+    }
+  }
+
+  .article-content {
+
+  }
+
+  .article-footer {
+    display: flex;
+    justify-content: space-between;
+
+    .article-author-picture {
+
+      border: 1px solid #f0f0f0;
+
+      & img {
+        width: 50px;
+        border-radius: 20%;
+      }
+    }
+  }
+
+  .article-image {
+    max-width: 100%;
+  }
+  
+}

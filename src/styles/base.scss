@@ -5,11 +5,22 @@
 
 
 p, div {
-  font-family: $font-family;
+	@include fontSize($font-size-l);
+	font-family: $font-family;
 }
 
 .hidden {
 	display: none;
+}
+
+h1 {
+	a {
+		text-decoration: none;
+		color: $link-color;
+		&:hover {
+			color: $link-hover-color;
+		}
+	}
 }
 
 .container-main {

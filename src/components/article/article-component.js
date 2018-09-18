@@ -25,27 +25,28 @@ export const createArticle = ({
 	article.classList.add('article');
 	article.innerHTML = `
 		<header class="article-header">
-			<a class="article-title" href="/article/?id=${id}">${title}</a>
-		</header>
-		<div class="article-content">
+			<h1 class="article-title">
+				<a href="/article/?id=${id}">${title}</a>
+			</h1>
 			<div class="article-category">
 				${category.name}
 			</div>
-			<a class="article-title" href="/article/?id=${id}">
+		</header>
+		<div class="article-content">
+			<a href="/article/?id=${id}">
 				<img src="${imageURL}" class="article-image"></img>
 			</a>
-			<div>
-				<p class="article-summary">${summary}</p>
-			</div>
+			<div class="article-summary">${summary}</div>
+		</div>
+		<div class="article-footer">
 			<div class="article-author">
-				<div class="article-author-name">${user.name}</div>
 				<div class="article-author-picture">
-					<img src="${user.pictureURL}" alt="${user.name}" title="${user.name}"/>
+					<img src="${user.imageURL}" alt="${user.name}" title="${user.name}"/>
 				</div>
+				<div class="article-author-name">${user.name}</div>
 			</div>
 			<div class="article-timestamp">${getFormatedDateDiff(timestamp)}</div>
 			<div class="article-comments-number"><a href="/article?id=${id}#comments">Comments: ${commentsNumber}</a></div>
-			<hr>
 		</div>
 	`;
 
