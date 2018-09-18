@@ -24,9 +24,10 @@ footer.footer {
     position: fixed;
     right: 10px;
 		cursor: pointer;
+		color: $link-color;
 		
 		&:hover {
-			color: red;
+			color: $link-hover-color;
 		}
 	}
 }

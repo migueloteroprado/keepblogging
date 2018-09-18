@@ -33,8 +33,8 @@ export const createArticle = ({
 			</div>
 		</header>
 		<div class="article-content">
-			<a href="/article/?id=${id}">
-				<img src="${imageURL}" class="article-image"></img>
+			<a class="article-image" href="/article/?id=${id}">
+				<img src="${imageURL}"></img>
 			</a>
 			<div class="article-summary">${summary}</div>
 		</div>
@@ -45,8 +45,10 @@ export const createArticle = ({
 				</div>
 				<div class="article-author-name">${user.name}</div>
 			</div>
-			<div class="article-timestamp">${getFormatedDateDiff(timestamp)}</div>
-			<div class="article-comments-number"><a href="/article?id=${id}#comments">Comments: ${commentsNumber}</a></div>
+			<div class="article-status">
+				<div class="article-timestamp">${getFormatedDateDiff(timestamp)}</div>
+				<div class="article-comments-number"><a href="/article?id=${id}#comments">Comments: ${commentsNumber}</a></div>
+			</div>
 		</div>
 	`;
 

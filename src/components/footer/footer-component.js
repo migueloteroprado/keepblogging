@@ -27,7 +27,6 @@ export const goTop = () => {
 			btnTop.classList.add('hidden');
 		}
 	});
-
 };
 
 export default {

@@ -78,7 +78,7 @@ header.header-main {
 		@include for-tablet-portrait {
 			display: flex;
 			flex-direction: column;
-			border-top: 1px solid #ccc;
+			border-top: 1px solid #ddd;
 		}
 
 		@include for-tablet-landscape {

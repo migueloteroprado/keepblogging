@@ -3,36 +3,43 @@
 @import '~styles/settings';
 @import '~styles/layout';
 
+body {
+	background-color: #f0f0f0;
+}
 
 p, div {
 	@include fontSize($font-size-l);
 	font-family: $font-family;
 }
 
+p {
+	margin-top: 0;
+}
+
 .hidden {
 	display: none;
 }
 
-h1 {
-	a {
-		text-decoration: none;
-		color: $link-color;
-		&:hover {
-			color: $link-hover-color;
-		}
+a {
+	text-decoration: none;
+	color: $link-color;
+	&:hover {
+		color: $link-hover-color;
 	}
 }
 
 .container-main {
 	display: flex;
 	justify-content: center;
-	padding: 20px;
+	padding: 10px;
 	width: 100%;
 	padding-bottom: $footer-height + 20px;;
 	box-sizing: border-box;
 	margin: 0 auto;
+	z-index: -1;
 
 	@include for-tablet-portrait {
+		padding: 20px;
 		position: fixed;
 		top: $header-height-tablet-portrait;
 		bottom: $footer-height;

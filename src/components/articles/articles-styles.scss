@@ -4,12 +4,22 @@
 	width: 100%;
 
 	@include for-tablet-portrait {
-		width: 80%;
+		width: 85%;
 	}
 
 	@include for-tablet-landscape {
-		width: 70%;
+		width: 75%;
 		max-width: 1000px;
+
+	}
+
+	@include for-desktop {
+		width: 100%;
+		max-width: 1600px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	.spinner {

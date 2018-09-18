@@ -1,42 +1,119 @@
 .article {
 
   padding: 20px;
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   background-color: #fcfcfc;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   .article-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
 
     .article-title {
       @include fontSize($font-size-xl);
+      margin-top: -4px;
+      margin-bottom: 5px;
+      padding-right: 40px;
+    }
+
+    .article-category {
+      @include fontSize($font-size-s);
     }
   }
 
   .article-content {
 
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+
+    @include for-tablet-portrait {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .article-image {
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      width: 100%;    
+      @include for-tablet-portrait {
+        width: 30%;
+      }
+
+    }
+
+    .article-summary {
+
+      padding: 20px 20px 20px 0;
+
+      @include for-tablet-portrait {
+        width: 67%;
+        padding: 0 20px 20px 20px;
+      }
+
+    }
+  
   }
 
   .article-footer {
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
 
-    .article-author-picture {
+    .article-author {
 
-      border: 1px solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      & img {
-        width: 50px;
-        border-radius: 20%;
+      .article-author-name {
+        @include fontSize($font-size-s);
+      }
+
+      .article-author-picture {
+
+        & img {
+          width: 40px;
+          border-radius: 50%;
+        }
       }
     }
+
+    .article-status {
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+
+      .article-timestamp {
+        @include fontSize($font-size-s);
+      }
+
+      .article-comments-number {
+        margin-top: 10px;
+      }
+  
+    }
+
   }
 
-  .article-image {
-    max-width: 100%;
+  @include for-tablet-portrait {
+    margin-bottom: 20px;
+  }
+
+  @include for-desktop {
+    width: calc(50% - 65px);
+    margin: 10px;
   }
   
 }
