@@ -41,21 +41,15 @@ export const updateArticleDetail = ({
     <div class="article-detail-body">
       ${body}
     </div>
-
     <section class="comments-section">
-
       <header>
         <h2>Comments</h2>
       </header>
-
       <div id="comments-form-container">
       </div>
-
       <div id="comments" class="comments">
       </div>
-
     </section>
-
     <div>
       <a title="back" class="back" href='javascript:history.back()'><-- Go Back</a>
     </div>

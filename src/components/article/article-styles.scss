@@ -27,43 +27,28 @@
 
   .article-content {
 
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-
-    @include for-tablet-portrait {
-      display: flex;
-      flex-direction: row;
-    }
+    display:block;
 
     .article-image {
 
       img {
-        width: 100%;
+        width: 50%;
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 20px;
         border-radius: 5px;
-      }
-
-      width: 100%;    
-      @include for-tablet-portrait {
-        width: 30%;
       }
 
     }
 
     .article-summary {
-
-      padding: 20px 20px 20px 0;
-
-      @include for-tablet-portrait {
-        width: 67%;
-        padding: 0 20px 20px 20px;
-      }
-
+      padding: 0;
     }
   
   }
 
   .article-footer {
+    clear: both;
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #ddd;

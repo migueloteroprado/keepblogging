@@ -41,22 +41,29 @@ export default {
 };
 
 let lastScrollPosition = 0;
+let lastScrollDirection = 'down';
 window.addEventListener('scroll', () => {
 	const newScrollPosition = window.pageYOffset;
 	const header = document.querySelector('.header-main');
 	if (newScrollPosition < lastScrollPosition) {
-		// sroll up
-		header.classList.remove('header-static');
-		if (newScrollPosition > 0) {
-			header.classList.add('header-fixed');
-			header.classList.remove('menu-open');
-		} else {
-			header.classList.remove('header-fixed');
+		// scroll up
+		if (lastScrollDirection === 'down') {
+			header.classList.remove('header-static');
+			if (newScrollPosition > 0) {
+				header.classList.add('header-fixed');
+				header.classList.remove('menu-open');
+			} else {
+				header.classList.remove('header-fixed');
+			}
 		}
-	} else if (newScrollPosition < lastScrollPosition) {
+		lastScrollDirection = 'up';
+	} else if (newScrollPosition > lastScrollPosition) {
 		// scroll down
-		header.classList.remove('header-fixed');
-		header.classList.add('header-static');
+		if (lastScrollDirection === 'up') {
+			header.classList.remove('header-fixed');
+			header.classList.add('header-static');
+		}
+		lastScrollDirection = 'down';
 	}
 	lastScrollPosition = newScrollPosition;
 });
