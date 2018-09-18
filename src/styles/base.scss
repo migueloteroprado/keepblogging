@@ -38,6 +38,7 @@ a {
 	margin: 0 auto;
 	z-index: -1;
 
+	/*
 	@include for-tablet-portrait {
 		padding: 20px;
 		position: fixed;
@@ -52,5 +53,6 @@ a {
 	@include for-tablet-landscape {
 		top: $header-height-tablet-landscape;
 	}
+	*/
 
 }

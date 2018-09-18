@@ -1,18 +1,14 @@
 import { getFormatedDateDiff } from 'utils/utils';
 
 export const createComment = ({
-	articleId,
 	name,
 	email,
 	comment,
-	id,
 	timestamp
 } = {
-	articleId: 0,
 	name: '',
 	emaikl: '',
 	comment: '',
-	id: 0,
 	timestamp: ''
 }) => {
 	const commentContainer = document.createElement('article');

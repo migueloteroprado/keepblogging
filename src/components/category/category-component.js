@@ -1,4 +1,4 @@
-export const createCategory = ({id,	name } = { id: 0, name: '' }) => {
+export const createCategory = ({ id,	name } = { id: 0, name: '' }) => {
 	const category = document.createElement('article');
 	category.classList.add('category');
 	category.innerHTML = `

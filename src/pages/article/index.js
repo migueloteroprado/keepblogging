@@ -1,5 +1,5 @@
 import { updateHeader } from 'components/header/header-component';
-import { goTop } from 'components/footer/footer-component';
+import { configGoTopButton } from 'components/footer/footer-component';
 import { updateArticleDetail } from 'components/article-detail/article-detail-component';
 import queryString from 'query-string';
 import ArticleService from 'services/article-service';
@@ -20,4 +20,4 @@ if (articleId) {
 	});
 }
 updateHeader({ title: 'KeepBlogging', active: '' });
-goTop();
+configGoTopButton();

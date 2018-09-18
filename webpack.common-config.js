@@ -1,6 +1,7 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Dotenv = require('dotenv-webpack');
+var webpack = require('webpack');
 
 var page = function({ title, template, chunks, filename }) {
   return new HtmlWebpackPlugin(
@@ -27,7 +28,8 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist')
 	},
 	plugins: [
-		new Dotenv(),
+    new Dotenv(),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     page({
       title: 'Keep Blogging',
       template: path.join(__dirname, 'src', 'pages', 'articles', 'index.html'),

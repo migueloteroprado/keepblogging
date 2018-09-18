@@ -1,27 +1,16 @@
 
-export const goTop = () => {
+export const configGoTopButton = () => {
 	const btnTop = document.getElementById('btn-top');
-	const containerMain = document.querySelector('.container-main');
 
 	// Click event on go top button
 	btnTop.addEventListener('click', () => {
-		// scroll top (window for mobile and container-main fot tablet and desktop)
+		// scroll top
 		window.scroll({	top: 0, left: 0, behavior: 'smooth' });
-		containerMain.scroll({ top: 0, left: 0, behavior: 'smooth' });
 	});
 
-	// scroll event listener for window (mobile)
-	containerMain.addEventListener('scroll', () => {
-		if (containerMain.scrollTop > 10 || window.scrollY > 10) {
-			btnTop.classList.remove('hidden');
-		} else {
-			btnTop.classList.add('hidden');
-		}
-	});
-
-	// scroll event listener for container-main (tablet and desktop)
+	// scroll event listener
 	window.addEventListener('scroll', () => {
-		if (containerMain.scrollTop > 10 || window.scrollY > 10) {
+		if (window.pageYOffset > 10) {
 			btnTop.classList.remove('hidden');
 		} else {
 			btnTop.classList.add('hidden');
@@ -30,5 +19,5 @@ export const goTop = () => {
 };
 
 export default {
-	goTop
+	configGoTopButton
 };

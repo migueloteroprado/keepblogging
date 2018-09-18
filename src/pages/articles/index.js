@@ -1,5 +1,5 @@
 import { updateHeader } from 'components/header/header-component';
-import { goTop } from 'components/footer/footer-component';
+import { configGoTopButton } from 'components/footer/footer-component';
 import { createArticles } from 'components/articles/articles-component';
 import queryString from 'query-string';
 import 'styles/main.scss';
@@ -9,5 +9,5 @@ const categoryId = query && query.category;
 const search = query && query.search;
 
 updateHeader({ title: 'KeepBlogging', active: 'home' });
-goTop();
+configGoTopButton();
 createArticles({ categoryId, search });

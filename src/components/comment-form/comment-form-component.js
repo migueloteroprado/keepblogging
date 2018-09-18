@@ -82,7 +82,7 @@ const handleCommentForm = ({ articleId }) => {
 					PubSub.publish('reload-comments', { articleId });
 				} else {
 					notice.innerHTML = 'Then was an error sending your comment';
-					console.log('Error: ', response.error.message);
+					console.log('Error: ', response.error.message); // eslint-disable-line no-console
 				}
 				submitFormButton.disable = false;
 			});
