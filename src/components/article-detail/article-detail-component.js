@@ -24,9 +24,14 @@ const handleLike = (id) => {
 };
 
 export const updateArticleDetail = ({
-	title, user, body, id, timestamp
+	title, user, body, id, timestamp, imageURL
 } = {
-	title: 'No title', user: { name: 'No author' }, body: 'No content', id: 0, timestamp: ''
+	title: 'No title', 
+	user: { name: 'No author', email: 'No email' }, 
+	body: 'No content', 
+	id: 0, 
+	timestamp: '',
+	imageURL: ''
 }) => {
 	const article = document.getElementById('article-detail');
 	article.innerHTML = `
@@ -35,7 +40,10 @@ export const updateArticleDetail = ({
       <button id="like-button" class="like-button" title="toggle like">
         <i class="far fa-thumbs-up"></i>
       </button>
-    </header>
+		</header>
+		<div class="article-detail-media">
+			<img src="${imageURL}" alt="${title}"/>
+		</div>
     <div class="article-detail-body">
       ${body}
 		</div>

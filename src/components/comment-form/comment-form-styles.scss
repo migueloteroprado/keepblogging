@@ -1,0 +1,82 @@
+#comments-form-container {
+  border: 1px solid #ddd;
+  background-color: $white;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: $gutter-padding / 2;
+  padding-right: $gutter-padding * 0.75;
+
+  h3 {
+    margin: 0;
+    padding: $gutter-padding / 2;
+    @include fontSize($font-size-l);
+  }
+
+  #comment-form {
+    display: flex;
+    flex-wrap: wrap;
+  
+    .comment-form-field {
+      padding: 0 $gutter-padding $gutter-padding / 2 $gutter-padding / 2;
+      width: 100%;
+      box-sizing: border-box;
+      &:not(.comment-textarea) {
+        @include for-tablet-landscape {
+          width: 50%;
+        }
+      }
+    
+      label {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+      }
+    
+      input {
+        display: block;
+        width: 100%;
+        border: solid 1px $border-color;
+        border-radius: 3px;
+        line-height: 1.5rem;
+        padding: 2px 7px 2px 7px;
+      
+        &.error {
+          border-color: $error;
+        }
+    
+        &.focus {
+          border-color: $link-color;
+        }
+      }
+    
+      textarea {
+        @extend input;
+        min-height: 5rem;
+        border: solid 1px $border-color;
+        @include for-tablet-landscape {
+          width: 100%;
+        }
+      }
+    }
+  
+    #comment-form-submit {
+      display: block;
+      width: 100%;
+      background-color: $primary-color;
+      color: $white;
+      padding: $gutter-padding / 2;
+      margin: 0 $gutter-padding / 4 $gutter-padding / 2 $gutter-padding / 2;
+      outline: none;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lighten($primary-color, 15);
+      }
+    }
+    
+  }
+  
+}
+

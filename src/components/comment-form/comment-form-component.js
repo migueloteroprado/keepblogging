@@ -90,19 +90,15 @@ export const createCommentForm = ({ articleId }) => {
 	const commentsForm = document.getElementById('comments-form-container');
 	const form = document.createElement('div');
 	form.innerHTML = `
-		<div>
-			<h3>Add a comment...</h3>
-		</div>
+		<h3>Add a comment...</h3>
 		<form id="comment-form">
-			<div class="form-fields-wrapper">
-				<div class="comment-form-field">
-					<label for="name">Name*</label>
-					<input class="comment-input" type="text" name="name" id="comment-form-name" placeholder="Enter your name" required>
-				</div>
-				<div class="comment-form-field">
-					<label for="email">Email*</label>
-					<input class="comment-input" type="email" name="email" id="comment-form-email" placeholder="Enter your email" required>
-				</div>
+			<div class="comment-form-field">
+				<label for="name">Name*</label>
+				<input class="comment-input" type="text" name="name" id="comment-form-name" placeholder="Enter your name" required>
+			</div>
+			<div class="comment-form-field">
+				<label for="email">Email*</label>
+				<input class="comment-input" type="email" name="email" id="comment-form-email" placeholder="Enter your email" required>
 			</div>
 			<div class="comment-form-field comment-textarea">
 				<label for="comment">Comment*</label>

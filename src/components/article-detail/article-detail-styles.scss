@@ -43,6 +43,17 @@
 				color: $link-hover-color;
 			}
 		}
+
+	}
+
+	.article-detail-media {
+
+		margin-top: $gutter-padding;
+
+		img {
+			width: 100%;
+			border-radius: 5px;
+		}
 	}
 
 	.article-detail-body {
@@ -84,77 +95,9 @@
 
 		h2 {
 			@include fontSize($font-size-xl);
-			margin: 0;
-		}
-
-		#comments-form-container {
-			border: 1px solid #ddd;
-			background-color: $white;
-			border-radius: 5px;
-			margin-top: 10px;
-			padding: 10px 15px 10px 15px;
-
-			h3 {
-				margin: 0;
-				@include fontSize($font-size-l);
-			}
-
-
-
-			.comment-form-field {
-				padding: $gutter-padding / 2 0;
-				width: 100%;
-				&:not(.comment-textarea) {
-					@include for-tablet-landscape {
-						width: 33.3333%;
-						padding-right: $gutter-padding;
-						box-sizing: border-box;
-					}
-				}
-		
-				label {
-					display: block;
-					width: 100%;
-					margin-bottom: 10px;
-					text-transform: uppercase;
-				}
-		
-				input {
-					display: block;
-					width: 100%;
-					border: 0;
-					border-bottom: solid 1px $border-color;
-		
-					&.error {
-						border-color: $error;
-					}
-		
-					&.focus {
-						border-color: blue;
-					}
-				}
-		
-				textarea {
-					@extend input;
-					min-height: 4em;
-					border: solid 1px $border-color;
-					@include for-tablet-landscape {
-						width: 100%;
-					}
-				}
-			}
-		
-			#comment-form-submit {
-				display: block;
-				width: 100%;
-				background-color: $primary-color;
-				color: $white;
-				padding: 10px;
-			}
-
-
-
-
+			border-bottom: 1px solid #ddd;
+    	padding-bottom: 5px;
+    	margin-bottom: 20px;
 		}
 	}
 }

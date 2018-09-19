@@ -1,0 +1,22 @@
+.comment {
+
+  margin-bottom: $gutter-padding / 2;
+	padding: $gutter-padding / 2 $gutter-padding;
+	border: 1px solid $border-color;
+  border-radius: 5px;
+  
+  .comment-content {
+    border-bottom: 1px solid $border-color;
+    padding-bottom: $gutter-padding / 2;
+  }
+
+  .comment-stats-container {
+    display: flex;
+    justify-content: space-between;
+    @include fontSize($font-size-xs);
+
+    .comment-stats-title {  
+      color: $link-hover-color;  
+    }
+  }
+}
