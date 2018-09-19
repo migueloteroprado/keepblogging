@@ -15,7 +15,11 @@ const loadArticles = (articlesJSON, articles) => {
 export const updateArticles = ({ categoryId, search }) => {
 	const articleServiceInstance = new ArticleService();
 	const articles = document.getElementById('articles');
-	articles.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
+	articles.innerHTML = `<div class="article">
+													<div class="spinner">
+														<i class="fas fa-spinner fa-spin fa-2x"></i>
+													</div>
+												</div>`;
 	// get articles
 	articleServiceInstance.getArticles({
 		category: categoryId,
@@ -31,7 +35,7 @@ export const updateArticles = ({ categoryId, search }) => {
 		loadArticles(articlesJSON, articles);
 	}).catch((error) => {
 		console.log(error); // eslint-disable-line no-console
-		articles.innerHTML = 'There was an error loading articles, please reload';
+		articles.innerHTML = '<div class="article">There was an error loading articles, please reload</div>';
 	});
 };
 

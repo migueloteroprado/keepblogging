@@ -21,8 +21,10 @@ p, div {
 a {
 	text-decoration: none;
 	color: $link-color;
-	&:hover {
-		color: $link-hover-color;
+	@media (hover: hover) {
+		&:hover {
+			color: $link-hover-color;
+		}
 	}
 }
 
@@ -30,7 +32,6 @@ a {
 	display: flex;
 	justify-content: center;
 	padding: 10px 10px $footer-height 10px;
-	padding-bottom: $footer-height;
 	width: 100%;
 	box-sizing: border-box;
 	margin: 0 auto;
@@ -38,4 +39,8 @@ a {
 	@include for-tablet-portrait {
 		padding: 20px 20px $footer-height 20px;
 	}
+}
+
+.spinner {
+	text-align: center;
 }

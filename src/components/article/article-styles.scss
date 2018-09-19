@@ -36,6 +36,7 @@
         img {
           width: 40%;
           float: left;
+          object-fit: cover;
           margin-right: 20px;
           margin-bottom: 20px;
           border-radius: 5px;
@@ -67,10 +68,14 @@
 
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
 
       .article-author-name {
         @include fontSize($font-size-s);
+        
+        .author-name-title {
+          color: $link-hover-color;
+        }
       }
 
       .article-author-picture {

@@ -28,8 +28,10 @@ footer.footer {
 		cursor: pointer;
 		color: $link-color;
 		
-		&:hover {
-			color: $link-hover-color;
+		@media (hover: hover) {
+			&:hover {
+				color: $link-hover-color;
+			}
 		}
 	}
 }

@@ -2,14 +2,15 @@
 	position: relative;
 	padding: 20px;
 	width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid $border-color;
   background-color: #fcfcfc;
   border-radius: 5px;
-	margin-bottom: 10px;	
+	margin-bottom: $gutter-padding / 2;	
 	
 	@include for-tablet-portrait {
 		width: 80%;
 		max-width: 700px;
+		margin-bottom: $gutter-padding;
 	}
 
 	@include for-tablet-landscape {
@@ -20,7 +21,7 @@
 	.title-container {
 
 		padding-bottom: 10px;
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid $border-color;
 
 		.article-detail-title {
 			@include fontSize($font-size-xl);
@@ -39,8 +40,10 @@
 			@include fontSize($font-size-xl);
 			cursor: pointer;
 	
-			&:hover {
-				color: $link-hover-color;
+			@media (hover: hover) {
+				&:hover {
+					color: $link-hover-color;
+				}
 			}
 		}
 
@@ -57,24 +60,28 @@
 	}
 
 	.article-detail-body {
-		padding-top: 20px;
+		padding-top: $gutter-padding / 2;
 	}
 
   .article-detail-footer {
     clear: both;
     display: flex;
     justify-content: space-between;
-    padding: 10px 0 20px 0;
+    padding: $gutter-padding / 2 0 $gutter-padding 0;
     border-top: 1px solid #ddd;
 
     .article-detail-author {
 
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
 
       .article-detail-author-name {
-        @include fontSize($font-size-s);
+				@include fontSize($font-size-s);
+
+				.author-name-title {
+          color: $link-hover-color;
+        }
       }
 
       .article-detail-author-picture {
@@ -96,8 +103,9 @@
 		h2 {
 			@include fontSize($font-size-xl);
 			border-bottom: 1px solid #ddd;
-    	padding-bottom: 5px;
-    	margin-bottom: 20px;
+			padding-bottom: 5px;
+			margin-top: 0;
+    	margin-bottom: $gutter-padding;
 		}
 	}
 }

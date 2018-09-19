@@ -45,7 +45,7 @@ export const createArticle = ({
 				<div class="article-author-picture">
 					<img src="${user.imageURL}" alt="${user.name}" title="${user.name}"/>
 				</div>
-				<div class="article-author-name">${user.name}</div>
+				<div class="article-author-name"><span class="author-name-title">Posted by:</span> ${user.name}</div>
 			</div>
 			<div class="article-status">
 				<div class="article-timestamp">${getFormatedDateDiff(timestamp)}</div>

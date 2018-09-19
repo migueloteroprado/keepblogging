@@ -71,8 +71,10 @@
       border-radius: 5px;
       cursor: pointer;
 
-      &:hover {
-        background-color: lighten($primary-color, 15);
+      @media (hover: hover) {
+        &:hover {
+          background-color: lighten($primary-color, 15);
+        }
       }
     }
     

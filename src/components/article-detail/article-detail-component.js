@@ -52,7 +52,7 @@ export const updateArticleDetail = ({
 				<div class="article-detail-author-picture">
 					<img src="${user.imageURL}" alt="${user.name}" title="${user.name}"/>
 				</div>
-				<div class="article-detail-author-name">${user.name}</div>
+				<div class="article-detail-author-name"><span class="author-name-title">Posted by:</span> ${user.name}</div>
 			</div>
 			<div class="article-detail-timestamp">${getFormatedDateDiff(timestamp)}</div>
 		</div>
@@ -65,10 +65,12 @@ export const updateArticleDetail = ({
       </div>
       <div id="comments" class="comments">
       </div>
-    </section>
+		</section>
+		<!--
     <div>
       <a title="back" class="back" href='javascript:history.back()'><-- Go Back</a>
-    </div>
+		</div>
+		-->
   `;
 
 	handleLike(id);
@@ -87,7 +89,6 @@ export const updateArticleDetail = ({
 		updateComments({ articleId: id });
 	});
 };
-
 
 export default {
 	updateArticleDetail

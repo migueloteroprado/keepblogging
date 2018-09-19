@@ -1,6 +1,9 @@
 .comment {
 
   margin-bottom: $gutter-padding / 2;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 	padding: $gutter-padding / 2 $gutter-padding;
 	border: 1px solid $border-color;
   border-radius: 5px;
@@ -13,10 +16,16 @@
   .comment-stats-container {
     display: flex;
     justify-content: space-between;
+    padding-top: $gutter-padding / 2;
     @include fontSize($font-size-xs);
+
+    .comment-timestamp, .comment-author {
+      @include fontSize($font-size-s);
+    }
 
     .comment-stats-title {  
       color: $link-hover-color;  
+      @include fontSize($font-size-s);
     }
   }
 }
