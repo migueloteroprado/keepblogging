@@ -6,17 +6,17 @@ export const configHeaderScroll = () => {
 		const header = document.querySelector('.header-main');
 		if (newScrollPosition < lastScrollPosition) {
 			// scroll up
-			header.classList.remove('static');
+			header.classList.remove('header-static');
 			if (newScrollPosition > 0) {
-				header.classList.add('fixed');
+				header.classList.add('header-fixed');
 				header.classList.remove('menu-open');
 			} else {
-				header.classList.remove('fixed');
+				header.classList.remove('header-fixed');
 			}
 		} else if (newScrollPosition > lastScrollPosition) {
 			// scroll down
-			header.classList.remove('fixed');
-			header.classList.add('static');
+			header.classList.remove('header-fixed');
+			header.classList.add('header-static');
 		}
 		lastScrollPosition = newScrollPosition;
 	});

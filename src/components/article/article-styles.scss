@@ -8,16 +8,17 @@
 
   .article-header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     border-bottom: 1px solid #ddd;
     margin-bottom: $gutter-padding;
 
     .article-title {
-      @include fontSize($font-size-xl);
+      @include fontSize($font-size-l);
       margin-top: -4px;
-      margin-bottom: $gutter-padding / 2;
-      padding-right: $gutter-padding * 2;
+      margin-bottom: 0;
+      padding-right: $gutter-padding;
       @include for-tablet-portrait {
         @include fontSize($font-size-xl);
       }
@@ -25,17 +26,30 @@
 
     .article-category {
       @include fontSize($font-size-s);
+      padding-bottom: $gutter-padding / 2;
     }
   }
 
   .article-content {
 
+
+    @mixin media-hover($scale, $opacity) {
+      &:hover {
+        transform: scale($scale);
+        opacity: $opacity;
+        transition: 0.2s linear;
+      }
+    }
+
     .article-video-container {
       position: relative;
       height: 0;
       padding-bottom: percentage(315 / 560);
-      margin-bottom: $gutter-padding;
+      margin: 0 $gutter-padding / 2 $gutter-padding 0;
+      @include media-hover(1.01, 1);
+      transition: 0.2s linear;
     }
+
 
     .article-video {
       position: absolute;
@@ -43,13 +57,20 @@
       top: 0;
       height: 100%;
       width: 100%;
-
+      border: 1px solid $border-color;
+      padding: 2px;
     }
 
     img {
       width: 100%;
       margin-right: $gutter-padding;
       margin-bottom: $gutter-padding;
+      border: 1px solid $border-color;
+      padding: 2px;
+      opacity: 1;
+      transition: 0.2s linear;
+
+      @include media-hover(1.03, 0.8);
 
       @include for-tablet-portrait {
         float: left;
@@ -106,6 +127,7 @@
       }
 
       .article-comments-number {
+        @include fontSize($font-size);
         margin-top: $gutter-padding / 2;
       }
   

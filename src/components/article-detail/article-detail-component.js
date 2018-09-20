@@ -54,7 +54,7 @@ export const updateArticleDetail = ({
 				<div class="article-detail-author-picture">
 					<img src="${userImage}" alt="${user.name}" title="${user.name}"/>
 				</div>
-				<div class="article-detail-author-name"><span class="author-name-title">Posted by:</span> ${user.name}</div>
+				<div class="article-detail-author-name"><span class="author-name-title">Posted by:</span> ${user.name} (<a href="mailto:${user.email}">${user.email})</a></div>
 			</div>
 			<div class="article-detail-timestamp">${getFormatedDateDiff(timestamp)}</div>
 		</div>
@@ -76,14 +76,16 @@ export const updateArticleDetail = ({
 
 	createComments({ articleId: id });
 
-	// Go to comments directly if invoked from comments number in articles page
-	if (window.location.hash) {
-		window.addEventListener('load', () => {
+/* 	// Go to comments directly if invoked from comments number in articles page
+	window.addEventListener('load', () => {
+		console.log('load');
+		if (window.location.hash) {
+			console.log('hash');
 			const commentsDiv = document.getElementById('comments');
 			commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-		});
-	}
-
+		}
+	});
+ */
 	PubSub.subscribe('reload-comments', () => {
 		updateComments({ articleId: id });
 	});

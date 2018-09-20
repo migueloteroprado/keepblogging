@@ -40,11 +40,10 @@
 			@include fontSize($font-size-xl);
 			cursor: pointer;
 	
-			@media (hover: hover) {
-				&:hover {
-					color: $link-hover-color;
-				}
+			&:hover {
+				color: $link-hover-color;
 			}
+
 		}
 
 	}

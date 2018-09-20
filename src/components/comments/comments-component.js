@@ -25,6 +25,14 @@ export const updateComments = ({ articleId }) => {
 	commentServiceInstance.getComments({ article: articleId }).then(async (commentsJSON) => {
 		comments.innerHTML = '';
 		loadComments(commentsJSON, comments, articleId);
+
+		// Go to comments directly if invoked from comments number in articles page
+		if (window.location.hash) {
+			// wait a little time to ensure the DOM is updated
+			await sleep(300);
+			const commentsDiv = document.getElementById('comments');
+			commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+		}
 	}).catch((error) => {
 		console.log('Error:', error.message); // eslint-disable-line no-console
 		comments.innerHTML = 'There was an error loading comments, please reload';

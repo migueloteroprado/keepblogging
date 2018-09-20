@@ -1,5 +1,3 @@
-@import '~styles/settings';
-
 footer.footer {
 	position: fixed;
 	bottom: 0;
@@ -28,10 +26,9 @@ footer.footer {
 		cursor: pointer;
 		color: $link-color;
 		
-		@media (hover: hover) {
-			&:hover {
-				color: $link-hover-color;
-			}
+		
+		&:hover {
+			color: $link-hover-color;
 		}
 	}
 }
