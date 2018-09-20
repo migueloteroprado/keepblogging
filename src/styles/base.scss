@@ -26,6 +26,7 @@ h1, h2 {
 a {
 	text-decoration: none;
 	color: $link-color;
+	outline: none;
 	@media (hover: hover) {
 		&:hover {
 			color: $link-hover-color;
