@@ -1,3 +1,4 @@
+import userPlaceholder from 'assets/user-placeholder.png';
 import { createComments, updateComments } from 'components/comments/comments-component';
 import { createCommentForm } from 'components/comment-form/comment-form-component';
 import { getFormatedDateDiff } from 'utils/date';
@@ -26,14 +27,15 @@ const handleLike = (id) => {
 export const updateArticleDetail = ({
 	title, user, body, id, timestamp, imageURL
 } = {
-	title: 'No title', 
-	user: { name: 'No author', email: 'No email' }, 
-	body: 'No content', 
-	id: 0, 
+	title: 'No title',
+	user: { name: 'No author', imageURL: '' },
+	body: 'No content',
+	id: 0,
 	timestamp: '',
 	imageURL: ''
 }) => {
 	const article = document.getElementById('article-detail');
+	const userImage = user.imageURL !== '' ? user.imageURL : `/${userPlaceholder}`;
 	article.innerHTML = `
     <header class="title-container">
       <h1 title="Article title" class="article-detail-title">${title}</h1>
@@ -50,7 +52,7 @@ export const updateArticleDetail = ({
 		<div class="article-detail-footer">
 			<div class="article-detail-author">
 				<div class="article-detail-author-picture">
-					<img src="${user.imageURL}" alt="${user.name}" title="${user.name}"/>
+					<img src="${userImage}" alt="${user.name}" title="${user.name}"/>
 				</div>
 				<div class="article-detail-author-name"><span class="author-name-title">Posted by:</span> ${user.name}</div>
 			</div>
@@ -62,15 +64,10 @@ export const updateArticleDetail = ({
         <h2>Comments</h2>
       </header>
       <div id="comments-form-container">
-      </div>
+			</div>
       <div id="comments" class="comments">
       </div>
 		</section>
-		<!--
-    <div>
-      <a title="back" class="back" href='javascript:history.back()'><-- Go Back</a>
-		</div>
-		-->
   `;
 
 	handleLike(id);
@@ -81,8 +78,10 @@ export const updateArticleDetail = ({
 
 	// Go to comments directly if invoked from comments number in articles page
 	if (window.location.hash) {
-		const comments = document.getElementById('comments');
-		comments.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+		window.addEventListener('load', () => {
+			const commentsDiv = document.getElementById('comments');
+			commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+		});
 	}
 
 	PubSub.subscribe('reload-comments', () => {

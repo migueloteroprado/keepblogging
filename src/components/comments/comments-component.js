@@ -1,14 +1,15 @@
 import { appendComponent } from 'utils/utils';
 import { CommentService } from 'services/comment-service';
 import { createComment } from 'components/comment/comment-component';
+import { sleep } from '../../utils/utils';
 
 const loadComments = (commentsJSON, comments) => {
 	const updatedComments = comments;
 	if (commentsJSON.length === 0) {
-		updatedComments.innerHTML = 'No comments';
+		updatedComments.innerHTML = 'No comments yet';
 	} else {
-		appendComponent(updatedComments,
-			commentsJSON.map(commentData => createComment(commentData)));
+		const components = commentsJSON.map(commentData => createComment(commentData));
+		appendComponent(updatedComments, components);
 	}
 };
 

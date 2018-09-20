@@ -24,7 +24,7 @@
     }
 
     .comment-stats-title {  
-      color: $link-hover-color;  
+      color: lighten($text-color, 40);;  
       @include fontSize($font-size-s);
     }
   }

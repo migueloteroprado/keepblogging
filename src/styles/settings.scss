@@ -1,12 +1,20 @@
 @import 'utils';
 
+// colors
 $primary-color: #555;
-$link-color: #444;
-$link-hover-color: #aaa;
+$secondary-color: #009000;
+$text-color: #444;
+$link-color: $text-color;
+$link-hover-color: $secondary-color;
 $white: #f6f6f6;
+$black: #000;
 $gray: #a0a0a0;
 $error: #ff6666;
 
+// border
+$border-color: #ddd;
+
+// font sizes
 $font-size-xxxl: 36;
 $font-size-xxl: 24;
 $font-size-xl: 20;
@@ -16,6 +24,7 @@ $font-size-s: 12;
 $font-size-xs: 10;
 $font-size-xxs: 8;
 
+// fonts
 $font-family: 'Muli', sans-serif;
 $font-family-main: 'Cabin', sans-serif;
 
@@ -24,13 +33,15 @@ $breakpoint-tablet-portrait: 600px;
 $breakpoint-tablet-landscape: 900px;
 $breakpoint-desktop: 1200px;
 
+// shadows
 $box-shadow-default: 1px 1px 3px 0px $gray;
 $box-shadow-bottom: -1px -1px 3px 0px $gray;
 
+// header heights
 $header-height-mobile: 55px;
 $header-height-tablet-portrait: 87px;
 $header-height-tablet-landscape: 55px;
 $footer-height: 50px;
 
-$gutter-padding: 20px;
-$border-color: #ddd;
+// gutter
+$gutter-padding: 30px;

@@ -28,12 +28,15 @@
 		flex-direction: column;
 		align-items: flex-start;
 	}
+
+	/*
 	@include for-tablet-landscape {
 		height: $header-height-tablet-landscape;
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
 	}
+	*/
 
 	a {
 		display: flex;
@@ -43,20 +46,33 @@
 	}
 
   .title-container {
-		display: flex;
     align-items: center;
 		justify-content: center;
 		padding-right: 20px;
 		min-height: 50px;
-		
-		width: 300px;
+		width: 200px;
+
+		a {
+			&:hover {
+				color: $link-hover-color;
+				font-weight: bold;
+				transition: 0.1s linear;
+				.logo {
+					color: $link-hover-color;
+				}
+			}
+		}
 
 		.logo {
+			margin-top: 2px;
 			padding-right: 10px;
 			color: $primary-color;
 			height: 40px;
 			font-size: 1.5rem;
 			line-height: 2.5rem;
+			&:hover {
+				color: $link-hover-color;
+			}
 		}		
 
 		.title {
@@ -83,10 +99,12 @@
 			border-top: 1px solid #ddd;
 		}
 
+		/*
 		@include for-tablet-landscape {
 			flex-direction: row;
 			border: none;
 		}
+		*/
 
 		.menu, .user-links, .search {
 			padding: 0px 20px;
@@ -99,7 +117,11 @@
 				text-decoration: none;
 				color: $link-color;
 				@include fontSize($font-size);
-				padding: 10px 10px;
+				padding: 5px;
+
+				@include for-tablet-portrait {
+					padding: 5px 15px;
+				}
 	
 				@media (hover: hover) {
 					&:hover {
@@ -111,11 +133,12 @@
 				}
 				
 				&.menu-active {
-					color: green;
+					color: $secondary-color;
 					font-weight: bold;
 				}
 			}
 		}
+
 		.header-register-search {
 			display: flex;
 			flex-direction: column;
@@ -127,11 +150,13 @@
 				flex-direction: row;
 				justify-content: flex-end;
 			}
+			/*
 			@include for-tablet-landscape {
 				flex-direction: row;
 				position: inherit;
 				width: auto;
 			}
+			*/
 
 			.search {
 				padding: 15px;
@@ -149,13 +174,9 @@
 						border: 1px solid transparentize($gray, 0.5);
 						border-radius: 3px;
 						padding: 4px;
-						margin-right: -20px;
-			
-						@include for-mobile {
-							width: 100%;
-						}
-			
+						margin-right: -20px;			
 					}
+
 					button {
 						background: transparent;
 						padding: 0;
@@ -179,9 +200,6 @@
 
 				.register {
 					padding-right: 0;
-					@include for-mobile {
-						padding-right: 10px;
-					}
 				}
 			}
 		}
@@ -228,9 +246,11 @@
 				display: flex;
 				flex-direction: column;
 				padding: 5px 20px;
+				/*
 				@include for-tablet-landscape {
 					flex-direction: row;
 				}
+				*/
 			}
 		}
 	}		

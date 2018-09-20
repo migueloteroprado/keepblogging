@@ -5,13 +5,18 @@
 
 body {
 	background-color: #f0f0f0;
+	color: $text-color;
 }
 
 p, div {
 	@include fontSize($font-size-l);
 	font-family: $font-family;
 	margin-top: 0;
-	line-height: 1.5;
+	line-height: 1.5rem;
+}
+
+h1, h2 {
+	font-family: $font-family-main;
 }
 
 .hidden {

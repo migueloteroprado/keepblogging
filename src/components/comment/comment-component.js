@@ -18,11 +18,11 @@ export const createComment = ({
 			${comment}
 		</div>
 		<div class="comment-stats-container">
-			<div class="comment-timestamp">
-				${getFormatedDateDiff(timestamp)}
-			</div>
 			<div class="comment-author">
 				<span class="comment-stats-title">Posted by:</span> ${name} (<a href="mailto:${email}">${email}</a>) 
+			</div>
+			<div class="comment-timestamp">
+				${getFormatedDateDiff(timestamp)}
 			</div>
 		</div>
   `;

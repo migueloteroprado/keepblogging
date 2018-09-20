@@ -59,13 +59,15 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
           {
-            loader: 'image-webpack-loader',
+            loader: 'file-loader',
             options: {
-              name: "assets/[name].[hash].[ext]",
-            },
+              name: 'assets/[name].[hash].[ext]'
+            }
           },
+          {
+            loader: 'image-webpack-loader'
+          }
         ],
       },
       {

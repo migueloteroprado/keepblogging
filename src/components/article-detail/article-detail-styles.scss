@@ -1,6 +1,6 @@
 .article-detail {
 	position: relative;
-	padding: 20px;
+	padding: $gutter-padding;
 	width: 100%;
   border: 1px solid $border-color;
   background-color: #fcfcfc;
@@ -20,11 +20,11 @@
 
 	.title-container {
 
-		padding-bottom: 10px;
+		padding-bottom: $gutter-padding / 2;
 		border-bottom: 1px solid $border-color;
 
 		.article-detail-title {
-			@include fontSize($font-size-xl);
+			@include fontSize($font-size-xxl);
 			margin: 0;
 			padding-right: 40px;
 		}
@@ -55,7 +55,6 @@
 
 		img {
 			width: 100%;
-			border-radius: 5px;
 		}
 	}
 
@@ -80,14 +79,14 @@
 				@include fontSize($font-size-s);
 
 				.author-name-title {
-          color: $link-hover-color;
+          color: lighten($text-color, 40);
         }
       }
 
       .article-detail-author-picture {
         & img {
           width: 40px;
-          border-radius: 50%;
+          border-radius: 25%;
         }
       }
     }
@@ -101,9 +100,9 @@
 	.comments-section {
 
 		h2 {
-			@include fontSize($font-size-xl);
+			@include fontSize($font-size-xxl);
 			border-bottom: 1px solid #ddd;
-			padding-bottom: 5px;
+			padding-bottom: $gutter-padding / 4;
 			margin-top: 0;
     	margin-bottom: $gutter-padding;
 		}
