@@ -26,9 +26,7 @@ configGoTopButton();
 
 // Go to comments directly if invoked from comments number in articles page
 window.addEventListener('load', () => {
-	console.log('load');
 	if (window.location.hash) {
-		console.log('hash');
 		const commentsDiv = document.getElementById('comments');
 		if (commentsDiv) commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
 	}
