@@ -15,7 +15,7 @@
     margin-bottom: $gutter-padding;
 
     .article-title {
-      @include fontSize($font-size-l);
+      @include fontSize($font-size-xl);
       margin-top: -4px;
       margin-bottom: 0;
       padding-right: $gutter-padding;
@@ -61,23 +61,27 @@
       padding: 2px;
     }
 
-    img {
-      width: 100%;
-      margin-right: $gutter-padding;
-      margin-bottom: $gutter-padding;
-      border: 1px solid $border-color;
-      padding: 2px;
-      opacity: 1;
-      transition: 0.2s linear;
+    .article-image-container {
+      padding-right: $gutter-padding / 2;
 
-      @include media-hover(1.03, 0.8);
-
-      @include for-tablet-portrait {
-        float: left;
-        width: 40%;
-        max-width: 350px;
-      }
-    }      
+      img {
+        width: 100%;
+        margin-right: $gutter-padding;
+        margin-bottom: $gutter-padding;
+        border: 1px solid $border-color;
+        padding: 2px;
+        opacity: 1;
+        transition: 0.2s linear;
+  
+        @include media-hover(1.03, 0.8);
+  
+        @include for-tablet-portrait {
+          float: left;
+          width: 40%;
+          max-width: 350px;
+        }
+      }      
+    }
 
     .article-summary {
       padding: 0;

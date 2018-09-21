@@ -11,7 +11,7 @@ const addErrorClass = (input) => {
 	}
 };
 
-/*
+
 const addCustomValidation = (input) => {
 
 	if (input.id === 'comment-form-name') {
@@ -21,7 +21,7 @@ const addCustomValidation = (input) => {
 			input.setCustomValidity('');
 		}
 	}	else if (input.id === 'comment-form-email') {
-		if (!input.validity.valid) {
+		if (!input.value.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)) {
 			input.setCustomValidity('You must enter a valid email');
 		} else {
 			input.setCustomValidity('');
@@ -34,11 +34,13 @@ const addCustomValidation = (input) => {
 		}
 	}
 };
-*/
+
 
 const handleValidation = (formInputs) => {
 	for (let i = 0; i < formInputs.length; i += 1) {
 		const input = formInputs[i];
+
+		addCustomValidation(input);
 
 		input.addEventListener('focus', () => {
 			input.classList.add('focus');
@@ -46,7 +48,7 @@ const handleValidation = (formInputs) => {
 
 		input.addEventListener('blur', () => {
 			input.classList.remove('focus');
-			// addCustomValidation(input);
+			addCustomValidation(input);
 			addErrorClass(input);
 		});
 	}

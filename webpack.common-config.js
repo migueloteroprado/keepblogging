@@ -19,9 +19,9 @@ var page = function({ title, template, chunks, filename }) {
 
 module.exports = {
 	entry: {
-		articles: ['babel-polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'articles', 'index')],
-		article: ['babel-polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'article', 'index')],
-		categories: ['babel-polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'categories', 'index')]
+		articles: ['@babel/polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'articles', 'index')],
+		article: ['@babel/polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'article', 'index')],
+		categories: ['@babel/polyfill', 'whatwg-fetch', path.join(__dirname, 'src', 'pages', 'categories', 'index')]
 	},
 	output: {
 		filename: '[name][hash].js',

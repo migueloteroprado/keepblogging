@@ -49,3 +49,20 @@ a {
 .spinner {
 	text-align: center;
 }
+
+@mixin ancho {
+	@include for-tablet-portrait {
+		width: 85%;
+		margin-bottom: $gutter-padding;
+	}
+
+	@include for-tablet-landscape {
+		width: 75%;
+		max-width: 1000px;
+	}
+
+	@include for-desktop {
+		width: 65%;
+		max-width: 1400px;
+	}
+}

@@ -30,8 +30,8 @@ export const updateComments = ({ articleId }) => {
 		if (window.location.hash) {
 			// wait a little time to ensure the DOM is updated
 			await sleep(300);
-			const commentsDiv = document.getElementById('comments');
-			commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+			const commentsDiv = document.querySelector('.comments-section');
+			if (commentsDiv) commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
 		}
 	}).catch((error) => {
 		console.log('Error:', error.message); // eslint-disable-line no-console

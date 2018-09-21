@@ -1,4 +1,10 @@
+import picturePlaceholder600 from 'assets/image-placeholder-600.png';
+import picturePlaceholder900 from 'assets/image-placeholder-900.png';
+import picturePlaceholder1200 from 'assets/image-placeholder-1200.png';
+
 import userPlaceholder from 'assets/user-placeholder.png';
+
+import path from 'path';
 import { createComments, updateComments } from 'components/comments/comments-component';
 import { createCommentForm } from 'components/comment-form/comment-form-component';
 import { getFormatedDateDiff } from 'utils/date';
@@ -36,6 +42,28 @@ export const updateArticleDetail = ({
 }) => {
 	const article = document.getElementById('article-detail');
 	const userImage = user.imageURL !== '' ? user.imageURL : `/${userPlaceholder}`;
+	let imageContent = '';
+	if (imageURL) {
+		const base = path.dirname(imageURL);
+		const aux = path.basename(imageURL).split('.');
+		const name = aux[0] || '';
+		const ext = aux[1] || '';
+		imageContent = `<img src="${imageURL}" srcset="
+											${base}/${name}-600.${ext} 600w,
+											${base}/${name}-900.${ext} 900w,
+											${base}/${name}-1200.${ext} 1200w"
+											alt="${title}" title="${title}">`;
+	} else {
+		imageContent += `<img src="/${picturePlaceholder600}" srcset="
+												/${picturePlaceholder600} 600w,
+												/${picturePlaceholder900} 900w,
+												/${picturePlaceholder1200} 1200w"
+												alt="${title}" title="${title}">
+											</a>
+										</div>`;
+
+	}
+
 	article.innerHTML = `
     <header class="title-container">
       <h1 title="Article title" class="article-detail-title">${title}</h1>
@@ -44,7 +72,7 @@ export const updateArticleDetail = ({
       </button>
 		</header>
 		<div class="article-detail-media">
-			<img src="${imageURL}" alt="${title}"/>
+			${imageContent}
 		</div>
     <div class="article-detail-body">
       ${body}
@@ -76,16 +104,6 @@ export const updateArticleDetail = ({
 
 	createComments({ articleId: id });
 
-/* 	// Go to comments directly if invoked from comments number in articles page
-	window.addEventListener('load', () => {
-		console.log('load');
-		if (window.location.hash) {
-			console.log('hash');
-			const commentsDiv = document.getElementById('comments');
-			commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-		}
-	});
- */
 	PubSub.subscribe('reload-comments', () => {
 		updateComments({ articleId: id });
 	});

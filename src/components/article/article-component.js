@@ -1,5 +1,11 @@
 import userPlaceholder from 'assets/user-placeholder.png';
+
+import picturePlaceholder600 from 'assets/image-placeholder-600.png';
+import picturePlaceholder900 from 'assets/image-placeholder-900.png';
+import picturePlaceholder1200 from 'assets/image-placeholder-1200.png';
+
 import { getFormatedDateDiff } from 'utils/date';
+import path from 'path';
 
 export const createArticle = ({
 	id,
@@ -29,10 +35,31 @@ export const createArticle = ({
 		mediaContent = `<div class="article-video-container">
 										<iframe class="article-video" src="${videoURL}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 									</div>`;
-	} else if (imageURL) {
-		mediaContent = `<a class="article-image" href="/article/?id=${id}">
-											<img src="${imageURL}"></img>
-										</a>`;
+	}
+	if (imageURL) {
+		const base = path.dirname(imageURL);
+		const aux = path.basename(imageURL).split('.');
+		const name = aux[0] || '';
+		const ext = aux[1] || '';
+		mediaContent += `<div class="article-image-container">
+											<a class="article-image" href="/article/?id=${id}">
+											<img src="${imageURL}" srcset="
+												${base}/${name}-600.${ext} 600w,
+												${base}/${name}-900.${ext} 900w,
+												${base}/${name}-1200.${ext} 1200w"
+												alt="${title}" title="${title}">
+											</a>
+										</div>`;
+	} else {
+		mediaContent += `<div class="article-image-container">
+											<a class="article-image" href="/article/?id=${id}">
+											<img src="${picturePlaceholder600}" srcset="
+												${picturePlaceholder600} 600w,
+												${picturePlaceholder900} 900w,
+												${picturePlaceholder1200} 1200w"
+												alt="${title}" title="${title}">
+											</a>
+										</div>`;
 	}
 
 	const article = document.createElement('article');

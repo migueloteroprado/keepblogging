@@ -1,17 +1,4 @@
 .articles {
 	width: 100%;
-
-	@include for-tablet-portrait {
-		width: 85%;
-	}
-
-	@include for-tablet-landscape {
-		width: 75%;
-		max-width: 900px;
-	}
-
-	@include for-desktop {
-		width: 65%;
-		max-width: 1100px;
-	}
+	@include ancho;
 }
