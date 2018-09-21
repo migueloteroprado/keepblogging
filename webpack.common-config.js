@@ -2,6 +2,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Dotenv = require('dotenv-webpack');
 var webpack = require('webpack');
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 var page = function({ title, template, chunks, filename }) {
   return new HtmlWebpackPlugin(
@@ -30,6 +31,21 @@ module.exports = {
 	plugins: [
     new Dotenv(),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new FaviconsWebpackPlugin({
+      logo: path.join(__dirname, 'src', 'assets', 'favicon.png'),
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
+    }),
     page({
       title: 'Keep Blogging',
       template: path.join(__dirname, 'src', 'pages', 'articles', 'index.html'),

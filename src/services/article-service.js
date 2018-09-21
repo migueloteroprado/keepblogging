@@ -22,7 +22,7 @@ export class ArticleService {
 	}
 
 	async getArticle(id) {
-		return this.APIServiceInstance.get(`${this.model}/${id}?_expand=user`);
+		return this.APIServiceInstance.get(`${this.model}/${id}?_expand=user&_expand=category`);
 	}
 }
 

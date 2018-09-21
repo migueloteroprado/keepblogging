@@ -5,7 +5,7 @@ import { createArticle } from 'components/article/article-component';
 const loadArticles = (articlesJSON, articles) => {
 	const updatedArticles = articles;
 	if (articlesJSON.length === 0) {
-		updatedArticles.innerHTML = 'No articles';
+		updatedArticles.innerHTML = '<div class="article">No articles</div>';
 	} else {
 		appendComponent(updatedArticles,
 			articlesJSON.map(articleData => createArticle(articleData)));

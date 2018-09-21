@@ -45,6 +45,11 @@
 
 		}
 
+		.article-category {
+      @include fontSize($font-size);
+      padding-bottom: $gutter-padding / 2;
+    }
+
 	}
 
 	.article-detail-media {
