@@ -40,14 +40,14 @@
   "users": [
     {
       "id": 1,
-      "name": "Miguel",
+      "name": "Miguel Otero",
       "email": "miguelitri@gmail.com",
       "imageURL": "http://localhost:8000/pictures/miguel-otero.png"
     },
     {
       "id": 2,
-      "name": "User 2",
-      "email": "mail@server.com",
+      "name": "Fake User",
+      "email": "fakeuser@fakeserver.com",
       "imageURL": ""
     }
   ],
@@ -110,6 +110,18 @@
       "summary": "<p>333 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
       "body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta tempor eros quis lacinia.</p>",
       "timestamp": "2018-09-09 12:25:36",
+      "like": true
+    },
+    {
+      "id": 6,
+      "categoryId": 1,
+      "userId": 1,
+      "title": "An Ommadawn Chorus: Mike Oldfield's Favourite Albums",
+      "imageURL": "http://localhost:8000/pictures/mike-oldfield.jpg",
+      "videoURL": "",
+      "summary": "As Mike Oldfield releases new album Return To Ommadawn he guides Gary Kaill through 13 albums that he listened to before he began making music - after which he never listened to much music at all</p><p>Thank you Mike. A brilliant album. Wonderful melodies and atmosphere. Can just feel the guitars being played by an artist who loves his craft. Inspiring and captivating. Close your eyes and let the music take you on that return.</p>",
+      "body": "<p>'The thing is, despite what I’ve just done with this new album, I never listen to my old records. In fact, I never listen to <i>any</i>music,' admits Mike Oldfield, speaking to tQ by phone from his home in the Bahamas. 'You asked me to choose these albums and it's been very difficult. They are really only albums I listened to back in the 70s. Since I started making my own music, I've really not listened to much music at all. I’m a <i>maker</i> of music, I'm not a connoisseur.'</p><p>The list of albums that Oldfield has chosen suggests otherwise. Certainly, as he talks about the music that influenced his own early development, and casually spins stories about his early days in the business ('I once found myself flicking through Mick Jagger's record collection in his flat in about 1969. He had all of these very, very authentic blues records...') he recalls with fondness the effect that much of it had on his own creative vision. But he speaks most passionately about that new album. While Oldfield has reworked popular originals before with two sequels to debut <i>Tubular Bells</i>, <i>Return To Ommadawn</i> sees him revisit his 1975 original and build a fascinating bridge between past and present. <i>Ommadawn</i>, his third album, remains one of his best-loved works, and forty years on, Oldfield works fashions the new piece from the original’s core components: complex melodics, stirring atmospherics, and arrangements built around largely original instrumentation. </p><p>'The first thing was getting the instruments together and setting up a working environment,' explains Oldfield. 'Certain subtle little things like not having a click track and instead using a clockwork metronome were key. And setting up the workspace and Pro-Tools so that it resembled an old 24 track machine. I avoided any sampling apart from the reproduction of the keyboards that we used at the time. So yes, I just put all the crystals into the test tube and watched it grow. It just grew day by day. On the original, the sound of the acoustic guitar is not very good. Some parts sound  great but other bits just don't. The new one is far superior in terms of clarity. I still let the performances be very natural, there's no tidying up. I tried to do everything first take. I wanted to make it very human. I like that. The original, even though for the time it was great, doesn't stand up sonically. Some of it sounds, well, <i>lumpy</i>.'</p><p>As ever with Oldfield, if you’re hoping to hear it played live, don’t hold your breath. 'Well, I finally got it to work in the 90s with <i>Tubular Bells II</i>, largely by using a certain type of musician in the band: the kind who can read music and has played in the orchestra pit in the theatre, maybe. But my music just isn't rock band music. So, although it worked quite well with that kind of musician and using a conductor, it was perhaps a little mechanical: people following the score, you know. It lacked the spontaneity that I put into it when I was recording it. It's expensive, logistically challenging and impossible to come away from even a big tour with any kind of profit. I would say that for every ten concerts I've played, only two or three really lived up to my expectations.'</p><p>'Anyway,' he continues, 'I’m really very busy. It was lovely, with <i>Return To Ommadawn</i>, to get back to making music ‘by hand’ again, as it were. I really loved it. And right now, I'm working on <i>Tubular Bells IV</i> and I'm using the same techniques. It's wonderful. I've written the introduction already and it's taken me five years to come up with a variation on the original that I like. So we'll have to see where that leads. But as long as I can make a little progress each day, even if it's only a couple of seconds, it'll eventually get finished.'</p> ",
+      "timestamp": "2018-09-21 13:12:15",
       "like": true
     }
   ],
@@ -216,6 +228,30 @@
       "articleId": 1,
       "timestamp": "2018-09-20 01:24:55",
       "id": 13
+    },
+    {
+      "name": "mi",
+      "email": "pepe@sdsd.es",
+      "comment": "fsdfsdfsd",
+      "articleId": 1,
+      "timestamp": "2018-09-21 11:17:07",
+      "id": 14
+    },
+    {
+      "name": "Pepep",
+      "email": "per@ere.es",
+      "comment": "dfgssd",
+      "articleId": 1,
+      "timestamp": "2018-09-21 11:25:41",
+      "id": 15
+    },
+    {
+      "name": "xdvxvxc",
+      "email": "miguelitri@gmail.com",
+      "comment": "sdfsdfsd",
+      "articleId": 1,
+      "timestamp": "2018-09-21 12:57:30",
+      "id": 16
     }
   ]
 }

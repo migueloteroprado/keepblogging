@@ -40,7 +40,7 @@ const handleValidation = (formInputs) => {
 	for (let i = 0; i < formInputs.length; i += 1) {
 		const input = formInputs[i];
 
-		addCustomValidation(input);
+		//addCustomValidation(input);
 
 		input.addEventListener('focus', () => {
 			input.classList.add('focus');

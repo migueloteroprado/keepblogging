@@ -1,8 +1,8 @@
-.categories {
+.categories-container {
 	width: 100%;
 	@include ancho;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
   border: 1px solid $border-color;
@@ -10,35 +10,50 @@
   border-radius: 5px;
 	margin-bottom: $gutter-padding / 2;	
 	padding: $gutter-padding;
+
+	.categories-header h1 {
+		@include fontSize($font-size-xl);
+		margin: 0 $gutter-padding $gutter-padding $gutter-padding;
+		padding-bottom: $gutter-padding / 2;
+		border-bottom: 1px solid $border-color;
+	}
 	
 }
 
-.category {
-	width: 20%;
-	min-width: 160px;
-	text-align: center;
-	margin: 0;
-	padding: $gutter-padding / 2;	
-	
-	a {
-		display: block;
-		padding: $gutter-padding;
-		text-transform: uppercase;
-		text-decoration: none;
-		color: $link-color;
-		background-color: darken($white, .2);
-		border: 1px solid #ddd;
-		border-radius: 5px;
-		@include fontSize($font-size-l);
-		transition: 0.1s linear;
-	
+.categories {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 
-		&:hover {
-			color: $link-hover-color;
-			font-weight: bold;
-			background-color: darken($white, 5);
+	.category {
+		width: 20%;
+		min-width: 160px;
+		text-align: center;
+		margin: 0;
+		padding: $gutter-padding / 2;	
+		
+		a {
+			display: block;
+			padding: $gutter-padding;
+			text-transform: uppercase;
+			text-decoration: none;
+			color: $link-color;
+			background-color: darken($white, .2);
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			@include fontSize($font-size-l);
 			transition: 0.1s linear;
-			transform: scale(1.1);
+		
+	
+			&:hover {
+				color: $link-hover-color;
+				font-weight: bold;
+				background-color: darken($white, 5);
+				transition: 0.1s linear;
+				transform: scale(1.1);
+			}
 		}
 	}
 }
+
