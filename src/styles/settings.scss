@@ -2,17 +2,15 @@
 
 // colors
 $primary-color: #555;
-$secondary-color: #009000;
+$secondary-color: #3D9970;
 $text-color: #444;
 $link-color: $text-color;
 $link-hover-color: $secondary-color;
 $white: #f6f6f6;
-$black: #000;
 $gray: #a0a0a0;
 $error: #ff6666;
-
-// border
-$border-color: #ddd;
+$border-color: #bbb;
+$background-color: #ccc;
 
 // font sizes
 $font-size-xxxl: 36;
@@ -34,13 +32,13 @@ $breakpoint-tablet-landscape: 900px;
 $breakpoint-desktop: 1200px;
 
 // shadows
-$box-shadow-default: 1px 1px 3px 0px $gray;
+$box-shadow-default: 1px 1px 3px 0px $text-color;
 $box-shadow-bottom: -1px -1px 3px 0px $gray;
 
 // header heights
 $header-height-mobile: 55px;
-$header-height-tablet-portrait: 99px;
-$header-height-tablet-landscape: 99px;
+$header-height-tablet-portrait: 102px;
+$header-height-tablet-landscape: 102px;
 $footer-height: 50px;
 
 // gutter

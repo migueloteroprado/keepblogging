@@ -109,5 +109,15 @@
 			margin-top: 0;
     	margin-bottom: $gutter-padding;
 		}
+
+		.comments-nav {
+			display: flex;
+			padding: $gutter-padding / 2 0 0 0;
+
+			.form-button {
+				margin-right: $gutter-padding / 2;
+			}
+		}
+
 	}
 }

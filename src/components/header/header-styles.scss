@@ -20,9 +20,9 @@
 	padding: 0 20px;
 	box-shadow: $box-shadow-default;
 	z-index: 1;
-	background: url('assets/header-background.jpg');
-
 	transition: height 0.1s linear;
+
+	overflow: hidden;
 
 	@include for-tablet-portrait {
 		height: $header-height-tablet-portrait;
@@ -121,13 +121,19 @@
 				text-decoration: none;
 				color: $link-color;
 				@include fontSize($font-size);
-				padding: 5px 5px 5px;
+				padding: 5px 10px 5px 10px;
+				font-weight: normal;
+
+				width: 100%;
+    		text-align: center;
+    		display: block;
+
 	
 				&:hover {
 					color: $link-hover-color;
 					font-weight: bold;
-					//transform: scale(1.2);
-					//transition: 0.1s linear;
+					transform: scale(1.1);
+					transition: 0.1s linear;
 					background-color: darken($white, 5);
 				}
 				&.menu-active {
@@ -140,6 +146,7 @@
 
 				@include for-tablet-portrait {
 					padding: 10px;
+					width: auto;
 					&:first-of-type {
 						padding-top: 10px;
 					}

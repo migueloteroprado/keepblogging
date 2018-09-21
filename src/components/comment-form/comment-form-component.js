@@ -13,7 +13,6 @@ const addErrorClass = (input) => {
 
 
 const addCustomValidation = (input) => {
-
 	if (input.id === 'comment-form-name') {
 		if (input.value.length === 0) {
 			input.setCustomValidity('You must enter your name');
@@ -21,7 +20,7 @@ const addCustomValidation = (input) => {
 			input.setCustomValidity('');
 		}
 	}	else if (input.id === 'comment-form-email') {
-		if (!input.value.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)) {
+		if (!input.value.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)) { // eslint-disable-line
 			input.setCustomValidity('You must enter a valid email');
 		} else {
 			input.setCustomValidity('');
@@ -40,7 +39,7 @@ const handleValidation = (formInputs) => {
 	for (let i = 0; i < formInputs.length; i += 1) {
 		const input = formInputs[i];
 
-		//addCustomValidation(input);
+		// addCustomValidation(input);
 
 		input.addEventListener('focus', () => {
 			input.classList.add('focus');
@@ -107,7 +106,7 @@ export const createCommentForm = ({ articleId }) => {
 				<textarea class="comment-input" name="comment" id="comment-form-comment" maxlength="500" required
 					placeholder="Write a comment, maximum 500 characters"></textarea>
 			</div>
-			<input type="submit" value="Submit" id="comment-form-submit" />
+			<input type="submit" value="Submit" id="comment-form-submit" class="form-button"/>
 		</form>
 		<div id="notice"></div>
 	`;

@@ -5,6 +5,18 @@ export const appendComponent = (parent, components) => {
 	});
 };
 
+// create an element of a given type, with an optional id,
+// and an optional array of classes to assign to it
+export const createElement = (type, id, classes) => {
+	if (!type) return null;
+	const elem = document.createElement(type);
+	if (id) elem.setAttribute('id', id);
+	if (classes && classes.length > 0) {
+		classes.map(cls => elem.classList.add(cls));
+	}
+	return elem;
+};
+
 // pauses execution during given time (msecs)
 export const sleep = time => new Promise(response => setTimeout(response, time));
 

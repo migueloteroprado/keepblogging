@@ -1,8 +1,11 @@
 import userPlaceholder from 'assets/user-placeholder.png';
 
+// Uncomment this lines to load placeholder in article has no image
+/*
 import picturePlaceholder600 from 'assets/image-placeholder-600.png';
 import picturePlaceholder900 from 'assets/image-placeholder-900.png';
 import picturePlaceholder1200 from 'assets/image-placeholder-1200.png';
+*/
 
 import { getFormatedDateDiff } from 'utils/date';
 import path from 'path';
@@ -30,18 +33,13 @@ export const createArticle = ({
 }) => {
 	const userImage = user.imageURL !== '' ? user.imageURL : `/${userPlaceholder}`;
 
-	let mediaContent = '';
-	if (videoURL) {
-		mediaContent = `<div class="article-video-container">
-										<iframe class="article-video" src="${videoURL}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-									</div>`;
-	}
+	let imgContent = '';
 	if (imageURL) {
 		const base = path.dirname(imageURL);
 		const aux = path.basename(imageURL).split('.');
 		const name = aux[0] || '';
 		const ext = aux[1] || '';
-		mediaContent += `<div class="article-image-container">
+		imgContent += `<div class="article-image-container">
 											<a class="article-image" href="/article/?id=${id}">
 											<img src="${imageURL}" srcset="
 												${base}/${name}-600.${ext} 600w,
@@ -50,8 +48,10 @@ export const createArticle = ({
 												alt="${title}" title="${title}">
 											</a>
 										</div>`;
-	} else {
-		mediaContent += `<div class="article-image-container">
+	}
+	// uncomment these lines if you want to load a image placeholder if article has no image
+	/* 	else {
+		imgContent += `<div class="article-image-container">
 											<a class="article-image" href="/article/?id=${id}">
 											<img src="${picturePlaceholder600}" srcset="
 												${picturePlaceholder600} 600w,
@@ -60,6 +60,12 @@ export const createArticle = ({
 												alt="${title}" title="${title}">
 											</a>
 										</div>`;
+	} */
+	let videoContent = '';
+	if (videoURL) {
+		videoContent += `<div class="article-video-container">
+										<iframe class="article-video" src="${videoURL}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+									</div>`;
 	}
 
 	const article = document.createElement('article');
@@ -74,10 +80,13 @@ export const createArticle = ({
 			</div>
 		</header>
 		<div class="article-content">
-			${mediaContent}
-			<div class="article-summary">
-				${summary}
+			<div>
+				${imgContent}
+				<div class="article-summary">
+					${summary}
+				</div>
 			</div>
+			${videoContent}
 		</div>
 		</div>
 		<div class="article-footer">

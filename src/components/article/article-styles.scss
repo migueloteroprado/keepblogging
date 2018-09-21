@@ -43,6 +43,7 @@
 
     .article-video-container {
       position: relative;
+      clear: both;
       height: 0;
       padding-bottom: percentage(315 / 560);
       margin: 0 $gutter-padding / 2 $gutter-padding 0;

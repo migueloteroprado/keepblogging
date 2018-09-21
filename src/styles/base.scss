@@ -4,7 +4,7 @@
 @import '~styles/layout';
 
 body {
-	background-color: #f0f0f0;
+	background-color: $background-color;
 	color: $text-color;
 }
 
@@ -20,9 +20,10 @@ h1, h2 {
 }
 
 .hidden {
-	display: none;
+	display: none !important;
 }
 
+// default link styles
 a {
 	text-decoration: none;
 	color: $link-color;
@@ -33,34 +34,69 @@ a {
 	}
 }
 
+// main page container
 .container-main {
+	position: absolute;
 	display: flex;
 	justify-content: center;
 	padding: 10px 10px $footer-height 10px;
 	width: 100%;
 	box-sizing: border-box;
 	margin: 0 auto;
-	z-index: -1;
 	@include for-tablet-portrait {
 		padding: 20px 20px $footer-height 20px;
 	}
+
+	&::after {
+		content: '';
+		// background: url('~assets/header-background.jpg') repeat center ;
+		background-color: $background-color;
+		opacity: 0.1;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		position: absolute;
+		z-index: -1;
+	}	
 }
 
+// spinner for loading state of components
 .spinner {
 	text-align: center;
 }
 
+// form buttons
+.form-button {
+	display: block;
+	background-color: $primary-color;
+	color: $white;
+	padding: $gutter-padding / 3 $gutter-padding;
+	outline: none;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $secondary-color;
+		font-weight: bold;
+	}
+	&:disabled {
+		background-color: lighten($primary-color, 20);
+		cursor: inherit;
+	}
+}
+
+// mixin for page main container
 @mixin ancho {
 	@include for-tablet-portrait {
 		width: 95%;
 		margin-bottom: $gutter-padding;
 	}
-
 	@include for-tablet-landscape {
 		width: 75%;
 		max-width: 1000px;
 	}
-
 	@include for-desktop {
 		width: 65%;
 		max-width: 1400px;

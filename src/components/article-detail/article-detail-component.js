@@ -1,7 +1,9 @@
+// placeholders to load if the article has no image
 import picturePlaceholder600 from 'assets/image-placeholder-600.png';
 import picturePlaceholder900 from 'assets/image-placeholder-900.png';
 import picturePlaceholder1200 from 'assets/image-placeholder-1200.png';
 
+// placeholder to load in user has no profile photo
 import userPlaceholder from 'assets/user-placeholder.png';
 
 import path from 'path';
@@ -62,7 +64,6 @@ export const updateArticleDetail = ({
 												alt="${title}" title="${title}">
 											</a>
 										</div>`;
-
 	}
 
 	article.innerHTML = `
@@ -97,8 +98,14 @@ export const updateArticleDetail = ({
       </header>
       <div id="comments-form-container">
 			</div>
-      <div id="comments" class="comments">
-      </div>
+			<div id="comments" class="comments">
+			</div>
+			<nav id="comments-nav" class="comments-nav hidden">
+				<button class="comments-nav-btn form-button" id="comments-nav-first">|<</button>
+				<button class="comments-nav-btn form-button" id="comments-nav-prev"><</button>
+				<button class="comments-nav-btn form-button" id="comments-nav-next">></button>
+				<button class="comments-nav-btn form-button" id="comments-nav-last">>|</button>
+			</nav>
 		</section>
   `;
 

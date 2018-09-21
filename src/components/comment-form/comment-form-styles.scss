@@ -59,24 +59,11 @@
         }
       }
     }
-  
-    #comment-form-submit {
-      display: block;
-      width: 100px;
-      background-color: $primary-color;
-      color: $white;
-      padding: $gutter-padding / 3;
-      margin: $gutter-padding / 4 $gutter-padding / 4 $gutter-padding / 2 $gutter-padding / 2;
-      outline: none;
-      border: 0;
-      border-radius: 5px;
-      cursor: pointer;
 
-      &:hover {
-        background-color: $secondary-color;
-        font-weight: bold;
-      }
+    .form-button {
+      margin: $gutter-padding / 4 $gutter-padding / 4 $gutter-padding / 2 $gutter-padding / 2;
     }
+  
   }
 
   #notice {
