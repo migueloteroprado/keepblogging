@@ -9,7 +9,7 @@ body {
 }
 
 p, div {
-	@include fontSize($font-size-l);
+	@include fontSize($font-size);
 	font-family: $font-family;
 	margin-top: 0;
 	line-height: 1.5rem;
@@ -52,7 +52,7 @@ a {
 
 @mixin ancho {
 	@include for-tablet-portrait {
-		width: 85%;
+		width: 95%;
 		margin-bottom: $gutter-padding;
 	}
 

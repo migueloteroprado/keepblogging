@@ -18,6 +18,10 @@
 			@include fontSize($font-size-xl);
 			margin: 0;
 			padding-right: 40px;
+
+			@include for-tablet-landscape {
+				@include fontSize($font-size-xxl);
+			}
 		}
 	
 		.like-button {
