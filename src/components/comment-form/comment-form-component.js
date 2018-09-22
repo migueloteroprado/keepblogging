@@ -1,4 +1,9 @@
-import { appendComponent,	reportValidity,	getFormData, createDomElement } from 'utils/utils';
+import {
+	appendComponent,
+	reportValidity,
+	getFormData,
+	createDomElement
+} from 'utils/utils';
 import { getStringDate } from 'utils/date';
 import PubSub from 'pubsub-js';
 import { CommentService } from '../../services/comment-service';

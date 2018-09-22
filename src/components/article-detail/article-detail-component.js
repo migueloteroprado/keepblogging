@@ -12,6 +12,7 @@ import userPlaceholder from 'assets/user-placeholder.png';
 import path from 'path';
 import { createComments, updateComments } from 'components/comments/comments-component';
 import { createCommentForm } from 'components/comment-form/comment-form-component';
+import { createPagination } from 'components/comments-pagination/comments-pagination-component';
 import { getFormatedDateDiff } from 'utils/date';
 import { isScrolledIntoView } from 'utils/scroll';
 import PubSub from 'pubsub-js';
@@ -45,17 +46,16 @@ const handleLike = (id) => {
 };
 
 export const updateArticleDetail = async ({
-	title, user, category, summary, imageURL, videoURL, body, id, timestamp
+	title, user, category, imageURL, videoURL, body, id, timestamp
 } = {
 	title: 'No title',
 	user: { name: 'No author', imageURL: '' },
 	category: { name: 'No categoty' },
-	summary: 'No summary',
 	imageURL: '',
 	videoURL: '',
 	body: 'No content',
 	id: 0,
-	timestamp
+	timestamp: ''
 }) => {
 	const article = document.getElementById('article-detail');
 	const userImage = user && user.imageURL ? user.imageURL : `/${userPlaceholder}`;
@@ -119,7 +119,6 @@ export const updateArticleDetail = async ({
 			</div>
 			<div class="article-detail-timestamp">${getFormatedDateDiff(timestamp)}</div>
 		</div>
-
     <section class="comments-section">
       <header>
         <h2>Comments</h2>
@@ -129,10 +128,6 @@ export const updateArticleDetail = async ({
 			<div id="comments" class="comments">
 			</div>
 			<nav id="comments-nav" class="comments-nav hidden">
-				<button class="comments-nav-btn form-button" id="comments-nav-first">|<</button>
-				<button class="comments-nav-btn form-button" id="comments-nav-prev"><</button>
-				<button class="comments-nav-btn form-button" id="comments-nav-next">></button>
-				<button class="comments-nav-btn form-button" id="comments-nav-last">>|</button>
 			</nav>
 		</section>
   `;
@@ -140,6 +135,8 @@ export const updateArticleDetail = async ({
 	handleLike(id);
 
 	createCommentForm({ articleId: id });
+
+	createPagination();
 
 	// Go to comments directly if invoked from comments number in articles page
 	if (window.location.hash) {

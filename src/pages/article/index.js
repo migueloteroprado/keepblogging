@@ -11,8 +11,9 @@ const query = queryString.parse(window.location.search);
 const articleId = query && query.id;
 
 const showError = (error, article) => {
-	console.log(error);
-	article.innerHTML = '<h4 class="error center">There was an error loading article detail, please reload</h4>';
+	const articleContainer = article;
+	console.log(error); // eslint-disable-line no-console
+	articleContainer.innerHTML = '<h4 class="error center">There was an error loading article detail, please reload</h4>';
 };
 
 if (articleId) {
