@@ -10,14 +10,22 @@ const articleServiceInstance = new ArticleService();
 const query = queryString.parse(window.location.search);
 const articleId = query && query.id;
 
+const showError = (error, article) => {
+	console.log(error);
+	article.innerHTML = '<h4 class="error center">There was an error loading article detail, please reload</h4>';
+};
+
 if (articleId) {
 	const article = document.getElementById('article-detail');
 	article.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
 	articleServiceInstance.getArticle(articleId).then((articleJSON) => {
-		updateArticleDetail(articleJSON);
+		if (!articleJSON.error) {
+			updateArticleDetail(articleJSON);
+		} else {
+			showError(articleJSON.error, article);
+		}
 	}).catch((error) => {
-		console.log('Error:', error.message); // eslint-disable-line no-console
-		article.innerHTML = '<h4 class="error center">There was an error loading article detail, please reload</h4>';
+		showError(error, article);
 	});
 }
 updateHeader({ title: 'KeepBlogging', active: '' });

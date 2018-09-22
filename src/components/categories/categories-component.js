@@ -12,18 +12,26 @@ const loadCategories = (categoriesJSON, categories) => {
 	}
 };
 
+const showError = (error, categories) => {
+	console.log(error); // eslint-disable-line no-console
+	categories.innerHTML = '<h4 class="error center">There was an error loading categories, please reload</h4>';
+}
+
 export const updateCategories = () => {
 	const categoryServiceInstance = new CategoryService();
 	const categories = document.getElementById('categories');
 	categories.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
 	// get categories
 	categoryServiceInstance.getCategories().then(async (categoriesJSON) => {
-		// get coments number for each article
-		categories.innerHTML = '';
-		loadCategories(categoriesJSON, categories);
+		if (categoriesJSON.error) {
+			showError(categoriesJSON.error, categories);
+		} else {
+			// get coments number for each article
+			categories.innerHTML = '';
+			loadCategories(categoriesJSON, categories);
+		}
 	}).catch((error) => {
-		console.log(error); // eslint-disable-line no-console
-		categories.innerHTML = '<h4 class="error center">There was an error loading categories, please reload</h4>';
+		showError(error, categories);
 	});
 };
 

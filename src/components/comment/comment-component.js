@@ -1,5 +1,6 @@
 import { getFormatedDateDiff } from 'utils/date';
-
+import { createDomElement } from 'utils/utils';
+ 
 export const createComment = ({
 	name,
 	email,
@@ -7,11 +8,11 @@ export const createComment = ({
 	timestamp
 } = {
 	name: '',
-	emaikl: '',
+	email: '',
 	comment: '',
 	timestamp: ''
 }) => {
-	const commentContainer = document.createElement('article');
+	const commentContainer = createDomElement('article');
 	commentContainer.classList.add('comment');
 	commentContainer.innerHTML = `
 		<div class="comment-content">

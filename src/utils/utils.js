@@ -7,7 +7,7 @@ export const appendComponent = (parent, components) => {
 
 // create an element of a given type, with an optional id,
 // and an optional array of classes to assign to it
-export const createElement = (type, id, classes) => {
+export const createDomElement = (type, id, classes) => {
 	if (!type) return null;
 	const elem = document.createElement(type);
 	if (id) elem.setAttribute('id', id);

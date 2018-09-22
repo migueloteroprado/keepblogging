@@ -65,6 +65,11 @@ const handlePagingButtons = (comments) => {
 	});
 };
 
+const showError = (error, comments) => {
+	console.log('Error:', error); // eslint-disable-line no-console
+	comments.innerHTML = '<h4 class="error center">There was an error loading comments, please reload<h4>';
+};
+
 export const updateComments = ({ articleId }) => {
 	const commentServiceInstance = new CommentService();
 	const comments = document.getElementById('comments');
@@ -77,28 +82,31 @@ export const updateComments = ({ articleId }) => {
 	commentServiceInstance.getComments({ article: articleId }).then(async (commentsJSON) => {
 		comments.innerHTML = '';
 		commentsData = commentsJSON;
-		const numComments = commentsData.length;
-		if (numComments === 0) {
-			comments.innerHTML = 'No comments yet';
+		if (commentsData.error) {
+			showError(commentsData.error, comments);
 		} else {
-			// calculate cuurent page and total pages for navigation
-			totalPages = commentsData ? Math.ceil(commentsData.length / commentsPerPage) : 1;
-			currentPage = 1;
-			// load comments
-			loadComments(comments);
-			// show or hide nav buttons
-			const btnContainer = document.getElementById('comments-nav');
-			if (commentsData.length > 0) {
-				btnContainer.classList.remove('hidden');
-				handlePagingButtons(comments);
-				updateButtonState();
+			const numComments = commentsData.length;
+			if (numComments === 0) {
+				comments.innerHTML = 'No comments yet';
 			} else {
-				btnContainer.classList.add('hidden');
+				// calculate cuurent page and total pages for navigation
+				totalPages = commentsData ? Math.ceil(commentsData.length / commentsPerPage) : 1;
+				currentPage = 1;
+				// load comments
+				loadComments(comments);
+				// show or hide nav buttons
+				const btnContainer = document.getElementById('comments-nav');
+				if (commentsData.length > 0) {
+					btnContainer.classList.remove('hidden');
+					handlePagingButtons(comments);
+					updateButtonState();
+				} else {
+					btnContainer.classList.add('hidden');
+				}
 			}
 		}
 	}).catch((error) => {
-		console.log('Error:', error.message); // eslint-disable-line no-console
-		comments.innerHTML = '<h4 class="error center">There was an error loading comments, please reload<h4>';
+		showError(error.message, comments);
 	});
 };
 

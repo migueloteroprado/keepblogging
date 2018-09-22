@@ -45,18 +45,20 @@ const handleLike = (id) => {
 };
 
 export const updateArticleDetail = async ({
-	title, user, category, body, id, timestamp, imageURL
+	title, user, category, summary, imageURL, videoURL, body, id, timestamp
 } = {
 	title: 'No title',
 	user: { name: 'No author', imageURL: '' },
 	category: { name: 'No categoty' },
+	summary: 'No summary',
+	imageURL: '',
+	videoURL: '',
 	body: 'No content',
 	id: 0,
-	timestamp: '',
-	imageURL: ''
+	timestamp
 }) => {
 	const article = document.getElementById('article-detail');
-	const userImage = user.imageURL !== '' ? user.imageURL : `/${userPlaceholder}`;
+	const userImage = user && user.imageURL ? user.imageURL : `/${userPlaceholder}`;
 	let imageContent = '';
 	if (imageURL) {
 		const base = path.dirname(imageURL);
@@ -83,6 +85,12 @@ export const updateArticleDetail = async ({
 		</div>`;
 	}
 	*/
+	let videoContent = '';
+	if (videoURL) {
+		videoContent += `<div class="article-video-container">
+										<iframe class="article-video" src="${videoURL}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+									</div>`;
+	}
 
 	article.innerHTML = `
     <header class="title-container">
@@ -97,6 +105,8 @@ export const updateArticleDetail = async ({
 		<div class="article-detail-media">
 			${imageContent}
 		</div>
+		${videoContent}
+	
     <div class="article-detail-body">
       ${body}
 		</div>
@@ -117,7 +127,6 @@ export const updateArticleDetail = async ({
       <div id="comments-form-container">
 			</div>
 			<div id="comments" class="comments">
-				&nbsp;
 			</div>
 			<nav id="comments-nav" class="comments-nav hidden">
 				<button class="comments-nav-btn form-button" id="comments-nav-first">|<</button>

@@ -12,6 +12,11 @@ const loadArticles = (articlesJSON, articles) => {
 	}
 };
 
+const showError = (error) => {
+	console.log(error);
+	articles.innerHTML = '<div class="article"><h4 class="error center">There was an error loading articles, please reload</h4></div>';
+};
+
 export const updateArticles = ({ categoryId, search }) => {
 	const articleServiceInstance = new ArticleService();
 	const articles = document.getElementById('articles');
@@ -27,15 +32,19 @@ export const updateArticles = ({ categoryId, search }) => {
 	}).then(async (articlesJSON) => {
 		// get coments number for each article
 		const articlesData = articlesJSON;
-		for (let i = 0; i < articlesData.length; i++) {
-			const num = await articleServiceInstance.getCommentsNumber(articlesData[i].id);
-			articlesData[i].commentsNumber = num;
+		if (articlesData && !articlesData.error) {		
+			for (let i = 0; i < articlesData.length; i++) {
+				const num = await articleServiceInstance.getCommentsNumber(articlesData[i].id);
+				articlesData[i].commentsNumber = num;
+			}
+			articles.innerHTML = '';
+			loadArticles(articlesJSON, articles);
 		}
-		articles.innerHTML = '';
-		loadArticles(articlesJSON, articles);
+		else {
+			showError(articlesJSON.error); // eslint-disable-line no-console		
+		}
 	}).catch((error) => {
-		console.log(error); // eslint-disable-line no-console
-		articles.innerHTML = '<div class="article"><h4 class="error center">There was an error loading articles, please reload</h4></div>';
+		showError(error);
 	});
 };
 

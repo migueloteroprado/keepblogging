@@ -58,7 +58,7 @@
 
 	.article-detail-media {
 
-		margin-top: $gutter-padding;
+		margin: $gutter-padding 0;
 
 		img {
 			width: 100%;
@@ -73,6 +73,34 @@
     	width: 50%;
     	margin: $gutter-padding / 4 $gutter-padding $gutter-padding / 2 0;
 		}
+	}
+
+	@mixin media-hover($scale, $opacity) {
+		&:hover {
+			transform: scale($scale);
+			opacity: $opacity;
+			transition: 0.2s linear;
+		}
+	}
+
+	.article-video-container {
+		position: relative;
+		clear: both;
+		height: 0;
+		padding-bottom: percentage(315 / 560);
+		margin: 0 5px $gutter-padding 0;
+		@include media-hover(1.01, 1);
+		transition: 0.2s linear;
+	}
+
+	.article-video {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		border: 1px solid $border-color;
+		padding: 2px;
 	}
 
   .article-detail-footer {

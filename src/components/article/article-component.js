@@ -1,4 +1,5 @@
 import userPlaceholder from 'assets/user-placeholder.png';
+import { createDomElement } from 'utils/utils';
 
 // Uncomment this lines to load placeholder in article has no image
 /*
@@ -69,8 +70,7 @@ export const createArticle = ({
 									</div>`;
 	}
 
-	const article = document.createElement('article');
-	article.classList.add('article');
+	const article = createDomElement('article', '', ['article']);
 	article.innerHTML = `
 		<header class="article-header">
 			<h1 class="article-title">

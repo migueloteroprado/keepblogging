@@ -1,16 +1,15 @@
-import { appendComponent,	reportValidity,	getFormData } from 'utils/utils';
+import { appendComponent,	reportValidity,	getFormData, createDomElement } from 'utils/utils';
 import { getStringDate } from 'utils/date';
 import PubSub from 'pubsub-js';
 import { CommentService } from '../../services/comment-service';
 
 const addErrorClass = (input) => {
 	if (!input.checkValidity()) {
-		input.classList.add('error');
+		input.classList.add('input-error');
 	} else {
-		input.classList.remove('error');
+		input.classList.remove('input-error');
 	}
 };
-
 
 const addCustomValidation = (input) => {
 	if (input.id === 'comment-form-name') {
@@ -35,7 +34,7 @@ const addCustomValidation = (input) => {
 };
 
 
-const handleValidation = (formInputs) => {
+const initValidation = (formInputs) => {
 	for (let i = 0; i < formInputs.length; i += 1) {
 		const input = formInputs[i];
 
@@ -59,7 +58,7 @@ const handleCommentForm = ({ articleId }) => {
 	const formInputs = commentForm.getElementsByClassName('comment-input');
 	const notice = document.getElementById('notice');
 
-	handleValidation(formInputs);
+	initValidation(formInputs);
 
 	submitFormButton.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -89,7 +88,7 @@ const handleCommentForm = ({ articleId }) => {
 
 export const createCommentForm = ({ articleId }) => {
 	const commentsForm = document.getElementById('comments-form-container');
-	const form = document.createElement('div');
+	const form = createDomElement('div');
 	form.innerHTML = `
 		<h3>Add a comment...</h3>
 		<form id="comment-form">
