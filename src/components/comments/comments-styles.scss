@@ -2,7 +2,7 @@
 
 	h2 {
 		@include fontSize($font-size-xxl);
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid $border-color;
 		padding-bottom: $gutter-padding / 4;
 		margin-top: 0;
 		margin-bottom: $gutter-padding;

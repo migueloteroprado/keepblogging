@@ -37,7 +37,7 @@ footer.footer {
     display: flex;
 		align-items: center;
 		padding-left: $gutter-padding;
-		color: darken($secondary-color, 20);
+		color: $secondary-color;
 		border-left: 1px solid $gray;
 		font-family: $font-family-main;
 		@include fontSize($font-size-l);

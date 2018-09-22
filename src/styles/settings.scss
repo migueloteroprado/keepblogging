@@ -18,7 +18,7 @@ $gray: #a0a0a0;
 $error-color: #ff6666;
 $border-color: #bbb;
 $background-color: #ccc;
-$header-background-color: $white;
+$header-background-color: darken($white, 5);
 
 // font sizes
 $font-size-xxxl: 36;

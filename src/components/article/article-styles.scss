@@ -1,8 +1,8 @@
 .article {
 
   padding: $gutter-padding;
-  border: 1px solid #ddd;
-  background-color: #fcfcfc;
+  border: 1px solid $border-color;
+  background-color: $white;
   border-radius: 5px;
   margin-bottom: $gutter-padding / 2;
 
@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $border-color;
     margin-bottom: $gutter-padding;
 
     .article-title {
@@ -95,7 +95,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: $gutter-padding;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $border-color;
 
     .article-author {
 

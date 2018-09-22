@@ -6,7 +6,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
   border: 1px solid $border-color;
-  background-color: #fcfcfc;
+  background-color: $white;
   border-radius: 5px;
 	margin-bottom: $gutter-padding / 2;	
 	padding: $gutter-padding;
@@ -25,36 +25,5 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
-
-	.category {
-		width: 20%;
-		min-width: 160px;
-		text-align: center;
-		margin: 0;
-		padding: $gutter-padding / 2;	
-		
-		a {
-			display: block;
-			padding: $gutter-padding;
-			text-transform: uppercase;
-			text-decoration: none;
-			color: $link-color;
-			background-color: darken($white, .2);
-			border: 1px solid #ddd;
-			border-radius: 5px;
-			@include fontSize($font-size-l);
-			font-weight: bold;
-			transition: 0.1s linear;
-		
-	
-			&:hover {
-				color: $link-hover-color;
-				font-weight: bold;
-				background-color: darken($white, 5);
-				transition: 0.1s linear;
-				transform: scale(1.1);
-			}
-		}
-	}
 }
 
