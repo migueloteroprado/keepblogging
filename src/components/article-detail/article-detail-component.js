@@ -1,13 +1,13 @@
 // placeholders to load if the article has no image.
 // (uncomment thes lines if you want to load a placeholder for articles without an image)
 /*
-import picturePlaceholder600 from 'assets/image-placeholder-600.png';
-import picturePlaceholder900 from 'assets/image-placeholder-900.png';
-import picturePlaceholder1200 from 'assets/image-placeholder-1200.png';
+import picturePlaceholder600 from 'assets/images/image-placeholder-600.png';
+import picturePlaceholder900 from 'assets/images/image-placeholder-900.png';
+import picturePlaceholder1200 from 'assets/images/image-placeholder-1200.png';
 */
 
 // placeholder to load in user has no profile photo
-import userPlaceholder from 'assets/user-placeholder.png';
+import userPlaceholder from 'assets/images/user-placeholder.png';
 
 import path from 'path';
 import { createComments, updateComments } from 'components/comments/comments-component';

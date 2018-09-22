@@ -120,7 +120,7 @@
 				text-transform: uppercase;
 				text-decoration: none;
 				color: $text-color;
-				@include fontSize($font-size);
+				@include fontSize($font-size-s);
 				padding: 5px 10px 5px 10px;
 				font-weight: normal;
 
@@ -158,13 +158,14 @@
 		.menu {
 			a {
 				@include for-tablet-portrait {
+					@include fontSize($font-size);
 					padding: 10px;
 					&:first-of-type {
 						padding-top: 10px;
 					}
 				}
 			}
-		}
+		}		
 
 		.header-register-search {
 			display: flex;
@@ -179,6 +180,18 @@
 				width: auto;
 				flex-direction: row;
 				justify-content: flex-end;
+			}
+
+			.user-links {
+				padding: 0px;
+				width: auto;
+				a {
+					padding-top: 5px;
+					padding-bottom: 5px;
+				}
+				.sign-in {
+					white-space: nowrap;
+				}
 			}
 
 			.search {
@@ -212,20 +225,6 @@
 						color: $gray;
 					}
 				}				
-			}
-
-			.user-links {
-				width: auto;
-				padding-right: 0;
-
-				@include for-mobile {
-					padding-right: 20px;
-				}
-
-				.sign-in {
-					white-space: nowrap;
-				}
-
 			}
 		}
 	}

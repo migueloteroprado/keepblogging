@@ -32,7 +32,7 @@ module.exports = {
     new Dotenv(),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new FaviconsWebpackPlugin({
-      logo: path.join(__dirname, 'src', 'assets', 'favicon.png'),
+      logo: path.join(__dirname, 'src', 'assets', 'images', 'favicon.png'),
       icons: {
         android: false,
         appleIcon: false,
@@ -78,13 +78,25 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/[name]-[hash].[ext]'
+              name: 'assets/[name]-[hash].[ext]',
+              publicPath: '../'
             }
           },
           {
             loader: 'image-webpack-loader'
           }
         ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+                name: 'assets/fonts/[name]-[hash].[ext]',
+                publicPath: '../'
+           }
+        }]
       },
       {
         test: /\.(html|ejs)$/,

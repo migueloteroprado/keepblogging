@@ -8,8 +8,6 @@
 $primary-color: #245841;
 $secondary-color: #c99362;
 
-
-
 $text-color: #444;
 $link-color: $primary-color;
 $link-hover-color: $secondary-color;
@@ -18,7 +16,7 @@ $gray: #a0a0a0;
 $error-color: #ff6666;
 $border-color: #bbb;
 $background-color: #ccc;
-$header-background-color: darken($white, 5);
+$header-background-color: $white;
 
 // font sizes
 $font-size-xxxl: 36;
@@ -31,6 +29,28 @@ $font-size-xs: 10;
 $font-size-xxs: 8;
 
 // fonts
+
+@font-face {
+  font-family: 'Muli';
+  src: url('~assets/fonts/muli/Muli-Regular.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Muli';
+  src: url('~assets/fonts/muli/Muli-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Cabin';
+  src: url('~assets/fonts/cabin/Cabin-Regular.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Cabin';
+  src: url('~assets/fonts/cabin/Cabin-Bold.ttf');
+  font-weight: 700;
+}
+
 $font-family: 'Muli', sans-serif;
 $font-family-main: 'Cabin', sans-serif;
 

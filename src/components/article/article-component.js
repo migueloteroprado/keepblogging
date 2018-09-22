@@ -1,11 +1,11 @@
-import userPlaceholder from 'assets/user-placeholder.png';
+import userPlaceholder from 'assets/images/user-placeholder.png';
 import { createDomElement } from 'utils/utils';
 
-// Uncomment this lines to load placeholder in article has no image
+// Uncomment this lines to load placeholder if article has no image
 /*
-import picturePlaceholder600 from 'assets/image-placeholder-600.png';
-import picturePlaceholder900 from 'assets/image-placeholder-900.png';
-import picturePlaceholder1200 from 'assets/image-placeholder-1200.png';
+import picturePlaceholder600 from 'assets/images/image-placeholder-600.png';
+import picturePlaceholder900 from 'assets/images/image-placeholder-900.png';
+import picturePlaceholder1200 from 'assets/images/image-placeholder-1200.png';
 */
 
 import { getFormatedDateDiff } from 'utils/date';
@@ -32,6 +32,7 @@ export const createArticle = ({
 	timestamp: '2000-01-01 00:00:00',
 	commentsNumber: 0
 }) => {
+	// create innerHTML for image
 	const userImage = user.imageURL !== '' ? user.imageURL : `/${userPlaceholder}`;
 	let imgContent = '';
 	if (imageURL) {
