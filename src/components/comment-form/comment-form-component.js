@@ -33,21 +33,25 @@ const addCustomValidation = (input) => {
 	}
 };
 
-
-const initValidation = (formInputs) => {
+const handleValidation = (formInputs) => {
 	for (let i = 0; i < formInputs.length; i += 1) {
 		const input = formInputs[i];
 
-		// addCustomValidation(input);
+		addCustomValidation(input);
 
 		input.addEventListener('focus', () => {
 			input.classList.add('focus');
+			addErrorClass(input);
 		});
 
 		input.addEventListener('blur', () => {
 			input.classList.remove('focus');
 			addCustomValidation(input);
 			addErrorClass(input);
+		});
+
+		input.addEventListener('keypress', () => {
+			input.setCustomValidity('');
 		});
 	}
 };
@@ -58,7 +62,7 @@ const handleCommentForm = ({ articleId }) => {
 	const formInputs = commentForm.getElementsByClassName('comment-input');
 	const notice = document.getElementById('notice');
 
-	initValidation(formInputs);
+	handleValidation(formInputs);
 
 	submitFormButton.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -91,7 +95,7 @@ export const createCommentForm = ({ articleId }) => {
 	const form = createDomElement('div');
 	form.innerHTML = `
 		<h3>Add a comment...</h3>
-		<form id="comment-form">
+		<form id="comment-form" novalidate>
 			<div class="comment-form-field">
 				<label for="name">Name*</label>
 				<input class="comment-input" type="text" name="name" id="comment-form-name" placeholder="Enter your name" required>
