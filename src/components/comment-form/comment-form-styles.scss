@@ -35,14 +35,15 @@
       input {
         display: block;
         width: 100%;
+        min-height: 25px;
         border: solid 1px $border-color;
         border-radius: 3px;
         line-height: 1.5rem;
-        padding: 2px 7px 2px 7px;
+        padding: 3px 7px 3px 7px;
         outline: none;
       
         &.error {
-          border-color: $error;
+          border-color: $error-color;
         }
     
         &.focus {

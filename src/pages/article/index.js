@@ -17,17 +17,9 @@ if (articleId) {
 		updateArticleDetail(articleJSON);
 	}).catch((error) => {
 		console.log('Error:', error.message); // eslint-disable-line no-console
-		article.innerHTML = 'There was an error loading the article data, please reload';
+		article.innerHTML = '<h4 class="error center">There was an error loading article detail, please reload</h4>';
 	});
 }
 updateHeader({ title: 'KeepBlogging', active: '' });
 configHeaderScroll();
 configGoTopButton();
-
-// Go to comments directly if invoked from comments number in articles page
-window.addEventListener('load', () => {
-	if (window.location.hash) {
-		const commentsDiv = document.getElementById('comments');
-		if (commentsDiv) commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-	}
-});

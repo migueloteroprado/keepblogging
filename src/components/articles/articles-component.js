@@ -35,7 +35,7 @@ export const updateArticles = ({ categoryId, search }) => {
 		loadArticles(articlesJSON, articles);
 	}).catch((error) => {
 		console.log(error); // eslint-disable-line no-console
-		articles.innerHTML = '<div class="article">There was an error loading articles, please reload</div>';
+		articles.innerHTML = '<div class="article"><h4 class="error center">There was an error loading articles, please reload</h4></div>';
 	});
 };
 

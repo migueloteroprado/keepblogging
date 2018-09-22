@@ -9,6 +9,10 @@
 	
 	@include ancho;
 
+	a {
+		font-weight: bold;
+	}
+
 	.title-container {
 
 		padding-bottom: $gutter-padding / 2;

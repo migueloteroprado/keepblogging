@@ -96,17 +96,9 @@ export const updateComments = ({ articleId }) => {
 				btnContainer.classList.add('hidden');
 			}
 		}
-
-		// Go to comments directly if invoked from comments number in articles page
-		if (window.location.hash) {
-			// wait a little time to ensure the DOM is updated
-			await sleep(300);
-			const commentsDiv = document.querySelector('.comments-section');
-			if (commentsDiv) commentsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-		}
 	}).catch((error) => {
 		console.log('Error:', error.message); // eslint-disable-line no-console
-		comments.innerHTML = 'There was an error loading comments, please reload';
+		comments.innerHTML = '<h4 class="error center">There was an error loading comments, please reload<h4>';
 	});
 };
 

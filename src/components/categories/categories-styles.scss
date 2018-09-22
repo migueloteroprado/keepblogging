@@ -43,6 +43,7 @@
 			border: 1px solid #ddd;
 			border-radius: 5px;
 			@include fontSize($font-size-l);
+			font-weight: bold;
 			transition: 0.1s linear;
 		
 	

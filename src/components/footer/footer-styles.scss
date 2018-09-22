@@ -24,11 +24,11 @@ footer.footer {
 		bottom: 10px;
 		z-index: 1;
 		cursor: pointer;
-		color: $link-color;
+		color: $link-hover-color;
 		
 		
 		&:hover {
-			color: $link-hover-color;
+			color: $link-color;
 		}
 	}
 }

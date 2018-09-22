@@ -32,34 +32,35 @@ export const createArticle = ({
 	commentsNumber: 0
 }) => {
 	const userImage = user.imageURL !== '' ? user.imageURL : `/${userPlaceholder}`;
-
 	let imgContent = '';
 	if (imageURL) {
 		const base = path.dirname(imageURL);
 		const aux = path.basename(imageURL).split('.');
 		const name = aux[0] || '';
 		const ext = aux[1] || '';
-		imgContent += `<div class="article-image-container">
-											<a class="article-image" href="/article/?id=${id}">
-											<img src="${imageURL}" srcset="
-												${base}/${name}-600.${ext} 600w,
-												${base}/${name}-900.${ext} 900w,
-												${base}/${name}-1200.${ext} 1200w"
-												alt="${title}" title="${title}">
-											</a>
-										</div>`;
+		imgContent += `
+			<div class="article-image-container">
+				<a class="article-image" href="/article/?id=${id}">
+				<img src="${imageURL}" srcset="
+					${base}/${name}-600.${ext} 600w,
+					${base}/${name}-900.${ext} 900w,
+					${base}/${name}-1200.${ext} 1200w"
+					alt="${title}" title="${title}">
+				</a>
+			</div>`;
 	}
 	// uncomment these lines if you want to load a image placeholder if article has no image
 	/* 	else {
-		imgContent += `<div class="article-image-container">
-											<a class="article-image" href="/article/?id=${id}">
-											<img src="${picturePlaceholder600}" srcset="
-												${picturePlaceholder600} 600w,
-												${picturePlaceholder900} 900w,
-												${picturePlaceholder1200} 1200w"
-												alt="${title}" title="${title}">
-											</a>
-										</div>`;
+		imgContent += `
+			<div class="article-image-container">
+				<a class="article-image" href="/article/?id=${id}">
+				<img src="${picturePlaceholder600}" srcset="
+					${picturePlaceholder600} 600w,
+					${picturePlaceholder900} 900w,
+					${picturePlaceholder1200} 1200w"
+					alt="${title}" title="${title}">
+				</a>
+			</div>`;
 	} */
 	let videoContent = '';
 	if (videoURL) {

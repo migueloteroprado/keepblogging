@@ -1,14 +1,21 @@
 @import 'utils';
 
 // colors
-$primary-color: #555;
-$secondary-color: #3D9970;
+
+// $primary-color: #4da980;
+// $secondary-color: #4da980;
+
+$primary-color: #245841;
+$secondary-color: #c99362;
+
+
+
 $text-color: #444;
-$link-color: $text-color;
+$link-color: $primary-color;
 $link-hover-color: $secondary-color;
 $white: #f6f6f6;
 $gray: #a0a0a0;
-$error: #ff6666;
+$error-color: #ff6666;
 $border-color: #bbb;
 $background-color: #ccc;
 

@@ -17,6 +17,7 @@ p, div {
 
 h1, h2, h3, h4, h5 {
 	font-family: $font-family-main;
+	color: $primary-color;
 }
 
 .hidden {
@@ -64,6 +65,7 @@ a {
 // spinner for loading state of components
 .spinner {
 	text-align: center;
+	color: $secondary-color;
 }
 
 // form buttons
@@ -82,9 +84,17 @@ a {
 		font-weight: bold;
 	}
 	&:disabled {
-		background-color: lighten($primary-color, 20);
+		background-color: lighten($text-color, 20);
 		cursor: inherit;
 	}
+}
+
+.error {
+	color: $error-color;
+}
+
+.center {
+	text-align: center;
 }
 
 // mixin for page main container

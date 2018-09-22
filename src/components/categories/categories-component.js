@@ -23,7 +23,7 @@ export const updateCategories = () => {
 		loadCategories(categoriesJSON, categories);
 	}).catch((error) => {
 		console.log(error); // eslint-disable-line no-console
-		categories.innerHTML = 'There was an error loading categories, please reload';
+		categories.innerHTML = '<h4 class="error center">There was an error loading categories, please reload</h4>';
 	});
 };
 

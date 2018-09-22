@@ -75,10 +75,10 @@ const handleCommentForm = ({ articleId }) => {
 			commentServiceInstance.postComment(formData).then((response) => {
 				if (response === true) {
 					commentForm.reset();
-					notice.innerHTML = 'Your comment has been sent';
+					notice.innerHTML = '<h4 class="center">Your comment has been sent</h4>';
 					PubSub.publish('reload-comments', { articleId });
 				} else {
-					notice.innerHTML = 'Then was an error sending your comment';
+					notice.innerHTML = '<h4 class="error center">There was an error sending your comment</h4>';
 					console.log('Error: ', response.error.message); // eslint-disable-line no-console
 				}
 				submitFormButton.disable = false;
