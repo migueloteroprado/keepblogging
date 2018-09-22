@@ -138,24 +138,4 @@
 
 	}	
 	
-	.comments-section {
-
-		h2 {
-			@include fontSize($font-size-xxl);
-			border-bottom: 1px solid #ddd;
-			padding-bottom: $gutter-padding / 4;
-			margin-top: 0;
-    	margin-bottom: $gutter-padding;
-		}
-
-		.comments-nav {
-			display: flex;
-			padding: $gutter-padding / 2 0 0 0;
-
-			.form-button {
-				margin-right: $gutter-padding / 2;
-			}
-		}
-
-	}
 }

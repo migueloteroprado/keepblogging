@@ -1,3 +1,14 @@
+.comments-section {
+
+	h2 {
+		@include fontSize($font-size-xxl);
+		border-bottom: 1px solid #ddd;
+		padding-bottom: $gutter-padding / 4;
+		margin-top: 0;
+		margin-bottom: $gutter-padding;
+	}
+}
+
 #comments {
 	margin-top: $gutter-padding;
 	min-height: 10px;

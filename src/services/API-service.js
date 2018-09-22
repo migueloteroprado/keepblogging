@@ -1,5 +1,3 @@
-import { sleep } from 'utils/utils';
-
 class APIService {
 	constructor() {
 		this.baseUrl = process.env.API_URL;

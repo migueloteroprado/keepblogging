@@ -1,6 +1,6 @@
 import { getFormatedDateDiff } from 'utils/date';
 import { createDomElement } from 'utils/utils';
- 
+
 export const createComment = ({
 	name,
 	email,

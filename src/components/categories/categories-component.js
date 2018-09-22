@@ -13,9 +13,10 @@ const loadCategories = (categoriesJSON, categories) => {
 };
 
 const showError = (error, categories) => {
+	const categoriesContainer = categories;
 	console.log(error); // eslint-disable-line no-console
-	categories.innerHTML = '<h4 class="error center">There was an error loading categories, please reload</h4>';
-}
+	categoriesContainer.innerHTML = '<h4 class="error center">There was an error loading categories, please reload</h4>';
+};
 
 export const updateCategories = () => {
 	const categoryServiceInstance = new CategoryService();

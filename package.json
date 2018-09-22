@@ -7,9 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production",
     "start": "webpack-dev-server --mode=development --hot --inline",
-    "server": "cd src/data && json-server --watch db.json --port=8000 --host localhost --delay=100",
+    "server": "cd src/data && json-server --watch db.json --port 8000 --host localhost --delay=100",
     "eslint": "node_modules/.bin/eslint ."
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/migueloteroprado/keepblogging.git"
