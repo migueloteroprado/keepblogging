@@ -1,6 +1,6 @@
 import { updateHeader } from 'components/header/header-component';
 import { configHeaderScroll } from 'utils/scroll';
-import { configGoTopButton } from 'components/footer/footer-component';
+import { configGoTopButton, updateFooter } from 'components/footer/footer-component';
 import { updateArticleDetail } from 'components/article-detail/article-detail-component';
 import queryString from 'query-string';
 import { ArticleService } from 'services/article-service';
@@ -29,6 +29,7 @@ if (articleId) {
 		showError(error, article);
 	});
 }
-updateHeader({ title: 'KeepBlogging', active: '' });
+updateHeader({ title: 'KeepBlogging', documentTitle: 'KeepBlogging - Article Detail', active: '' });
+updateFooter({ footerText: 'Article Detail' });
 configHeaderScroll();
 configGoTopButton();

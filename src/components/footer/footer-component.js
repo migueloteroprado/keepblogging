@@ -1,3 +1,7 @@
+export const updateFooter = ({ footerText }) => {
+	const text = document.getElementById('footer-text');
+	text.innerHTML = footerText;
+};
 
 export const configGoTopButton = () => {
 	const btnTop = document.getElementById('btn-top');

@@ -16,7 +16,7 @@
 	justify-content: center;
 	height: $header-height-mobile;
 	font-family: $font-family-main;
-  background-color: $white;
+  background-color: $header-background-color;
 	padding: 0 20px;
 	box-shadow: $box-shadow-default;
 	z-index: 1;
@@ -46,7 +46,6 @@
 		min-height: $header-height-mobile;
 		
 		a {
-
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -95,7 +94,7 @@
 
 		@include for-tablet-portrait {
 			display: flex;
-			border-top: 1px solid #ddd;
+			border-top: 1px solid $border-color;
 		}
 
 		.menu, .user-links, .search {
@@ -159,7 +158,6 @@
 		.menu {
 			a {
 				@include for-tablet-portrait {
-					@include fontSize($font-size-l);
 					padding: 10px;
 					&:first-of-type {
 						padding-top: 10px;

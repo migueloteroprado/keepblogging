@@ -23,7 +23,11 @@ const updateTitle = (title) => {
 	titleElement.innerHTML = title;
 };
 
-export const updateHeader = ({ title, active }) => {
+const updateDocumentTitle = (documentTitle) => {
+	document.title = documentTitle;
+};
+
+export const updateHeader = ({ title, documentTitle, active }) => {
 	let activeItem = active;
 	const query = queryString.parse(window.location.search);
 	const categoryId = query && query.category;
@@ -31,6 +35,7 @@ export const updateHeader = ({ title, active }) => {
 		activeItem = `menu-category-${categoryId}`;
 	}
 	updateTitle(title);
+	updateDocumentTitle(documentTitle);
 	handleHamburgerClick();
 	removeActiveClass();
 	addActiveClass(activeItem);

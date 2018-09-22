@@ -9,12 +9,13 @@ footer.footer {
 	font-family: $font-family-main;
   background-color: $white;
   height: $footer-height;
-	padding: 0 20px;
+	padding: 0;
 	box-shadow: $box-shadow-bottom;
 
 	.footer-title {
-		width: 100%;
-		text-align: center;
+		@include fontSize($font-size-l);
+		padding-right: $gutter-padding;
+		text-align: left;
 	}
 
 	#btn-top {
@@ -30,6 +31,18 @@ footer.footer {
 		&:hover {
 			color: $link-color;
 		}
+	}
+
+	#footer-text {
+    display: flex;
+		align-items: center;
+		padding-left: $gutter-padding;
+		color: darken($secondary-color, 20);
+		border-left: 1px solid $gray;
+		font-family: $font-family-main;
+		@include fontSize($font-size-l);
+		font-weight: bold;
+		text-align: right;
 	}
 }
 
