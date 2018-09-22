@@ -1,7 +1,10 @@
-// placeholders to load if the article has no image
+// placeholders to load if the article has no image.
+// (uncomment thes lines if you want to load a placeholder for articles without an image)
+/*
 import picturePlaceholder600 from 'assets/image-placeholder-600.png';
 import picturePlaceholder900 from 'assets/image-placeholder-900.png';
 import picturePlaceholder1200 from 'assets/image-placeholder-1200.png';
+*/
 
 // placeholder to load in user has no profile photo
 import userPlaceholder from 'assets/user-placeholder.png';
@@ -56,7 +59,10 @@ export const updateArticleDetail = ({
 											${base}/${name}-900.${ext} 900w,
 											${base}/${name}-1200.${ext} 1200w"
 											alt="${title}" title="${title}">`;
-	} else {
+	}
+	// uncomment these lines if you want to load a placeholder for articles without images
+	/*
+	else {
 		imageContent += `<img src="/${picturePlaceholder600}" srcset="
 												/${picturePlaceholder600} 600w,
 												/${picturePlaceholder900} 900w,
@@ -65,6 +71,7 @@ export const updateArticleDetail = ({
 											</a>
 										</div>`;
 	}
+	*/
 
 	article.innerHTML = `
     <header class="title-container">

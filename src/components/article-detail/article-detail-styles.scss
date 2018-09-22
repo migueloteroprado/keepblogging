@@ -63,6 +63,12 @@
 
 	.article-detail-body {
 		padding-top: $gutter-padding / 2;
+
+		img {
+			float: left;
+    	width: 50%;
+    	margin: $gutter-padding / 4 $gutter-padding $gutter-padding / 2 0;
+		}
 	}
 
   .article-detail-footer {

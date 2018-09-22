@@ -78,7 +78,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/[name].[ext]'
+              name: 'assets/[name]-[hash].[ext]'
             }
           },
           {
@@ -102,6 +102,5 @@ module.exports = {
 			services: path.resolve(__dirname, 'src', 'services'),
 			pages: path.resolve(__dirname, 'src', 'pages')
 	  }
-	},
-	devtool: 'source-map'
+	}
 };
