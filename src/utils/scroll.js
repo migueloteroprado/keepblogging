@@ -1,5 +1,6 @@
 let lastScrollPosition = 0;
 
+
 export const configHeaderScroll = () => {
 	window.addEventListener('scroll', () => {
 		const newScrollPosition = window.pageYOffset;
@@ -22,6 +23,7 @@ export const configHeaderScroll = () => {
 	});
 };
 
+// function to determine if an element is visible according its position into scrollView
 export const isScrolledIntoView = (elem) => {
 	const rect = elem.getBoundingClientRect();
 	const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);

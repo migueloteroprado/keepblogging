@@ -6,7 +6,7 @@ import picturePlaceholder900 from 'assets/images/image-placeholder-900.png';
 import picturePlaceholder1200 from 'assets/images/image-placeholder-1200.png';
 */
 
-// placeholder to load in user has no profile photo
+// placeholder image to load if user has no profile photo
 import userPlaceholder from 'assets/images/user-placeholder.png';
 
 import path from 'path';
@@ -48,6 +48,7 @@ const handleLike = (id) => {
 	});
 };
 
+// update DOM of the article detail
 export const updateArticleDetail = async ({
 	title, user, category, imageURL, videoURL, body, id, timestamp
 } = {
@@ -139,27 +140,29 @@ export const updateArticleDetail = async ({
 	revealAnimate('.article-detail', {
 		opacity: 0,
 		duration: 800,
-		scale: 0.9,
+		scale: 0.98,
 		delay: 0,
-		distance: '100px'
+		distance: '0px'
 	});
 
 	handleLike(id);
 
+	// create comment form component
 	createCommentForm({ articleId: id });
 
+	// create comments navigation buttons component
 	createPagination();
 
 	// Go to comments directly if invoked from comments number in articles page
-	if (window.location.hash) {
+	if (window.location.hash && window.location.hash === '#comments') {
 		// wait a little time to ensure that comments div is added to DOM
 		await sleep(100);
 		const commentsElement = document.querySelector('#comments');
 		if (commentsElement) commentsElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
 	}
 
-	// function fired on scroll event to determine if comments section is visible, then load comments
-	const commentsSection = document.querySelector('.comments-section');
+	// Load comments when comments section is visible, acording to scroll position
+	const commentsSection = document.querySelector('#comments');
 	window.addEventListener('scroll', () => {
 		if (isScrolledIntoView(commentsSection) && !commentsShowed) {
 			commentsShowed = true;
@@ -169,10 +172,10 @@ export const updateArticleDetail = async ({
 		}
 	});
 
+	// when a new comment is added, reload comments
 	PubSub.subscribe('reload-comments', () => {
 		updateComments({ articleId: id });
 	});
-
 };
 
 export default {

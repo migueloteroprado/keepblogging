@@ -71,6 +71,7 @@ export const createArticle = ({
 									</div>`;
 	}
 
+	// Create article DOM
 	const article = createDomElement('article', '', ['article']);
 	article.innerHTML = `
 		<header class="article-header">

@@ -129,11 +129,19 @@
 
       .article-timestamp {
         @include fontSize($font-size-s);
+        white-space: nowrap;
       }
-
+      
       .article-comments-number {
-        @include fontSize($font-size);
-        margin-top: $gutter-padding / 2;
+        @include fontSize($font-size-s);
+        margin-top: 5px;
+        display: block;
+        text-align: right;
+        line-height: 1rem;
+
+        @include for-tablet-portrait {
+          @include fontSize($font-size);
+        }
       }
   
     }

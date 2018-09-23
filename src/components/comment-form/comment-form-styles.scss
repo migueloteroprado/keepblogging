@@ -70,6 +70,10 @@
   #notice {
     padding-left: $gutter-padding / 2;
     color: $secondary-color;
+
+    h3 {
+      text-align: left;
+    }
   }  
   
 }

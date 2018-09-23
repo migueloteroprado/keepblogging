@@ -34,7 +34,7 @@ const showError = (error, categories) => {
 export const updateCategories = () => {
 	const categoryServiceInstance = new CategoryService();
 	const categories = document.getElementById('categories');
-	categories.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
+	categories.innerHTML = '<div class="spinner"><i class="fas fa-sync-alt fa-spin"></i></div>';
 	// get categories
 	categoryServiceInstance.getCategories().then(async (categoriesJSON) => {
 		if (categoriesJSON.error) {

@@ -26,7 +26,7 @@ export const reportValidity = (form) => {
 	} else {
 		HTMLFormElement.prototype.reportValidity = () => {
 			if (form.checkValidity()) return true;
-			const btn = document.createElement('button');
+			const btn = createDomElement('button');
 			form.appendChild(btn);
 			btn.click();
 			form.removeChild(btn);

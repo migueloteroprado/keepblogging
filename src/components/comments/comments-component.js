@@ -48,7 +48,7 @@ export const updateComments = ({ articleId }) => {
 	const comments = document.getElementById('comments');
 	comments.innerHTML = `<div class="comment">
 													<div class="spinner">
-														<i class="fas fa-spinner fa-spin fa-2x"></i>
+														<i class="fas fa-sync-alt fa-spin"></i>
 													</div>
 												</div>`;
 	// get comments
@@ -60,7 +60,7 @@ export const updateComments = ({ articleId }) => {
 		} else {
 			const numComments = commentsData.length;
 			if (numComments === 0) {
-				comments.innerHTML = 'No comments yet';
+				comments.innerHTML = '<h3>No comments yet</h3>';
 			} else {
 				// calculate cuurent page and total pages for navigation
 				const totalPages = commentsData ? Math.ceil(commentsData.length / commentsPerPage) : 1;

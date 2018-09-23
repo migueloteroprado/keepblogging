@@ -120,7 +120,7 @@
 				text-transform: uppercase;
 				text-decoration: none;
 				color: $text-color;
-				@include fontSize($font-size-s);
+				@include fontSize($font-size);
 				padding: 5px 10px 5px 10px;
 				font-weight: normal;
 
@@ -158,7 +158,6 @@
 		.menu {
 			a {
 				@include for-tablet-portrait {
-					@include fontSize($font-size);
 					padding: 10px;
 					&:first-of-type {
 						padding-top: 10px;

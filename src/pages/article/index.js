@@ -18,7 +18,7 @@ const showError = (error, article) => {
 
 if (articleId) {
 	const article = document.getElementById('article-detail');
-	article.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
+	article.innerHTML = '<div class="spinner"><i class="fas fa-sync-alt fa-spin"></i></div>';
 	articleServiceInstance.getArticle(articleId).then((articleJSON) => {
 		if (!articleJSON.error) {
 			updateArticleDetail(articleJSON);

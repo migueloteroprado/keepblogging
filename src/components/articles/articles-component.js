@@ -15,12 +15,21 @@ const loadArticles = (articlesJSON, articles) => {
 
 			articlesJSON.map(articleData => createArticle(articleData)));
 		// animate componentes
-		revealAnimate('.article', {
+		revealAnimate('.article:nth-child(n+2)', {
 			opacity: 0,
 			duration: 800,
-			scale: 0.1,
+			scale: 0.9,
 			delay: 0,
-			distance: '100px'
+			distance: '0px',
+			reset: false,
+			mobile: true,
+			desktop: true,
+			viewOffset: {
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0
+			}
 		});
 	}
 };
@@ -36,7 +45,7 @@ export const updateArticles = ({ categoryId, search }) => {
 	const articles = document.getElementById('articles');
 	articles.innerHTML = `<div class="article">
 													<div class="spinner">
-														<i class="fas fa-spinner fa-spin fa-2x"></i>
+														<i class="fas fa-spin fa-sync-alt"></i>
 													</div>
 												</div>`;
 	// get articles

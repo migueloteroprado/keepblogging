@@ -65,6 +65,7 @@ a {
 .spinner {
 	text-align: center;
 	color: $secondary-color;
+	@include fontSize($font-size-xxl);
 }
 
 // form buttons

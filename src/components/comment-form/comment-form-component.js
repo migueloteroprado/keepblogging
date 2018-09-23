@@ -79,14 +79,14 @@ const handleCommentForm = ({ articleId }) => {
 		reportValidity(commentForm);
 		if (commentForm.checkValidity()) {
 			submitFormButton.disable = true;
-			notice.innerHTML = '<div class="spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
+			notice.innerHTML = '<div class="spinner"><i class="fas fa-sync-alt fa-spin"></i></div>';
 			commentServiceInstance.postComment(formData).then((response) => {
 				if (response === true) {
 					commentForm.reset();
-					notice.innerHTML = '<h4 class="center">Your comment has been sent</h4>';
+					notice.innerHTML = '<h3 class="center">Your comment has been sent</h3>';
 					PubSub.publish('reload-comments', { articleId });
 				} else {
-					notice.innerHTML = '<h4 class="error center">There was an error sending your comment</h4>';
+					notice.innerHTML = '<h3 class="error center">There was an error sending your comment</h3>';
 					console.log('Error: ', response.error.message); // eslint-disable-line no-console
 				}
 				submitFormButton.disable = false;

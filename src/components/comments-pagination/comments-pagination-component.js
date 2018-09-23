@@ -62,7 +62,7 @@ export const createPagination = () => {
 		<button class="comments-nav-btn form-button" id="comments-nav-next">></button>
 		<button class="comments-nav-btn form-button" id="comments-nav-last">>|</button>
 		<div class="comments-pagination-info">
-			Page <span id="comments-current-page">${currentPage}</span> of <span id="comments-total-pages">${totalPages}</span>
+			Page&nbsp;<span id="comments-current-page">${currentPage}</span>&nbsp;of&nbsp; <span id="comments-total-pages">${totalPages}</span>
 		</div>`;
 
 	handlePagingButtons(commentsNav);
