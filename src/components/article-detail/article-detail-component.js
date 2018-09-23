@@ -137,9 +137,9 @@ export const updateArticleDetail = async ({
 
 	// animate component showing
 	revealAnimate('.article-detail', {
-		opacity: 0.3,
+		opacity: 0,
 		duration: 800,
-		scale: 0.7,
+		scale: 0.9,
 		delay: 0,
 		distance: '100px'
 	});

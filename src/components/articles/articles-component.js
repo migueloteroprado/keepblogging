@@ -16,11 +16,11 @@ const loadArticles = (articlesJSON, articles) => {
 			articlesJSON.map(articleData => createArticle(articleData)));
 		// animate componentes
 		revealAnimate('.article', {
-			opacity: 0.3,
+			opacity: 0,
 			duration: 800,
-			scale: 0.3,
+			scale: 0.1,
 			delay: 0,
-			distance: '1000px'
+			distance: '100px'
 		});
 	}
 };

@@ -32,9 +32,11 @@ API_URL=http://localhost:8000/
 Example:
 ``` shell
  "scripts": {
-     "server": "cd src/data && json-server --watch db.json --port=8000 --host=localhost"
+     "server": "cd src/data && json-server --watch db.json --port=8000 --host=localhost --delay=100"
  }
 ```
+Note: the *delay* parameter indicates the miliseconds that the server will delay in delivering data, useful for testing purposes
+
 ### Install Database
 
 Copy file "*db.sample.json*" in folder "*src/data*" to "db.json".
@@ -83,7 +85,7 @@ The produccion app will generated in the folder "***dist***"
 ---
 # App Description
 
-All pages share a commo header and footer.
+All pages share a common header and footer.
 
 The header will show:
 - The name and the logo.
@@ -94,7 +96,9 @@ Clicking on "More..." button will show a page with a list of all categories avai
 - A Search input text. It will will filter only the articles wich contains the introduced text in any field (title, summary, body, ...)
 - Login and Register buttons (with no functionality).
 
-The footer wil show the name of the app, clicking it will load the home page (list of articles).
+The footer wil show:
+-The name of the app, clicking it home page will be loaded (list of articles).
+-The page currently showed (List of articles, Article detail or List of categories).
 
 When scrolling down, a button will appear on the bottom right of the page, clicking will scroll to the the top of the page. 
 
@@ -114,7 +118,8 @@ Every article will show:
 	If the article was published less than a day ago, it will show the relative date (5 minutes ago, 4 hours ago, ...)
 	- Author (name, email and photo) 
 	If user has no photo, a pleceholder image will be loaded)
-	- Comments number (clicking will load the article detail page, and it will show directly the comments section)
+	- Comments number (clicking will load the article detail page, and it will show directly the comments section).
+	Note: given json-server limitations, an extra request to then API will be necesary for every article. A real backend should return this number directly in the list of articles.
 
 Clicking the title or the image of every article will load the article detail page.
 
@@ -176,4 +181,26 @@ It contains the following collections with the following fields:
 	* comment
 	* timestamp
 
-# Notes
+---
+
+# Notes for Instructor
+
+* **Get comments number for every article:**
+The number of comments of the articles is obtained by making an extra request to the API for each article, since the json server did not offer ways to include this number when obtaining the articles. It is assumed that the supposed real backend would already return this number in the request of the list of articles.
+
+* **Article image load:**
+Since the json-server is also capable of serving images, in some articles (music category), the URL of the image has been configured to be served from this backend.
+Four images have been created, one by default, and others for the widths of 600, 900 and 1200 pixels wide, to load the appropriate to each resolution using an srcset, and this logic has been added in the javascript of the component that generates the HTML.
+The user 1 photo also loads from this backend.
+For the rest of the images coming from other URLs, simply the srcset will fail and the default image will be obtained.
+
+	**Problem**: by default the json-server listen on 'localhost'. If we want to use another IP address for testing on another computer, it would be necessary to make the following changes:
+	* Change the IP address on .env file
+	* Change the IP address on package.json script entry for "server"
+	* Change the URL of the images in *db.json*, for the field 'imageURL' of user 1 and articles 2 and 5.
+
+* **Fonts**
+The app uses two google fonts (Muli and Cabin), which are loaded from *assets/fonts* folder using the file-loader webpack plugin.
+
+* **Animations**
+The app uses the animations library "scrollreveal" (https://github.com/scrollreveal/scrollreveal)
