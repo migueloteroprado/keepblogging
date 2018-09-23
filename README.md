@@ -39,7 +39,7 @@ Note: the *delay* parameter indicates the miliseconds that the server will delay
 
 ### Install Database
 
-Copy file "*db.sample.json*" in folder "*src/data*" to "db.json".
+Copy file "*db.sample.json*" in folder "*src/data*" to "*db.json*".
 
 ---
 
@@ -183,7 +183,7 @@ It contains the following collections with the following fields:
 
 ---
 
-# Notes for Instructor
+# Notes and Issues
 
 * **Get comments number for every article:**
 The number of comments of the articles is obtained by making an extra request to the API for each article, since the json server did not offer ways to include this number when obtaining the articles. It is assumed that the supposed real backend would already return this number in the request of the list of articles.
