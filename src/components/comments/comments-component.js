@@ -3,6 +3,9 @@ import { CommentService } from 'services/comment-service';
 import { createComment } from 'components/comment/comment-component';
 import { updatePagination } from 'components/comments-pagination/comments-pagination-component';
 
+// animation library
+import { revealAnimate } from 'utils/animate';
+
 const commentsPerPage = 5;
 let commentsData = [];
 
@@ -29,6 +32,15 @@ export const loadComments = (currentPage, totalPages) => {
 
 	// update pagination buttons state
 	updatePagination(currentPage, totalPages);
+
+	// animate comments showing
+	revealAnimate('.comment', {
+		opacity: 0.2,
+		duration: 500,
+		scale: 0.95,
+		delay: 0,
+		distance: '0px'
+	});
 };
 
 export const updateComments = ({ articleId }) => {
@@ -53,8 +65,10 @@ export const updateComments = ({ articleId }) => {
 				// calculate cuurent page and total pages for navigation
 				const totalPages = commentsData ? Math.ceil(commentsData.length / commentsPerPage) : 1;
 				const currentPage = 1;
+
 				// load comments
 				loadComments(currentPage, totalPages);
+
 				// show or hide nav buttons
 				const btnContainer = document.getElementById('comments-nav');
 				if (commentsData.length > 0) {

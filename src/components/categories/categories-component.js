@@ -2,13 +2,26 @@ import { appendComponent } from 'utils/utils';
 import { CategoryService } from 'services/category-service';
 import { createCategory } from 'components/category/category-component';
 
+// reveal animation library
+import { revealAnimate } from 'utils/animate';
+
 const loadCategories = (categoriesJSON, categories) => {
 	const updatedCategories = categories;
 	if (categoriesJSON.length === 0) {
 		updatedCategories.innerHTML = 'No categories';
 	} else {
+		// append categories to DOM
 		appendComponent(updatedCategories,
 			categoriesJSON.map(articleData => createCategory(articleData)));
+
+		// animate categories showing
+		revealAnimate('.categories', {
+			opacity: 0.1,
+			duration: 800,
+			scale: 0.9,
+			delay: 0,
+			distance: '0px'
+		});
 	}
 };
 

@@ -16,7 +16,10 @@ import { createPagination } from 'components/comments-pagination/comments-pagina
 import { getFormatedDateDiff } from 'utils/date';
 import { isScrolledIntoView } from 'utils/scroll';
 import PubSub from 'pubsub-js';
-import { sleep } from '../../utils/utils';
+import { sleep } from 'utils/utils';
+
+// reveal animation library
+import { revealAnimate } from 'utils/animate';
 
 // function to get the localstorage variable for 'liked' state of the article
 const isLiked = id => localStorage.getItem(`article-${id}`);
@@ -130,7 +133,16 @@ export const updateArticleDetail = async ({
 			<nav id="comments-nav" class="comments-nav hidden">
 			</nav>
 		</section>
-  `;
+	`;
+
+	// animate component showing
+	revealAnimate('.article-detail', {
+		opacity: 0.3,
+		duration: 800,
+		scale: 0.7,
+		delay: 0,
+		distance: '100px'
+	});
 
 	handleLike(id);
 
@@ -151,6 +163,8 @@ export const updateArticleDetail = async ({
 	window.addEventListener('scroll', () => {
 		if (isScrolledIntoView(commentsSection) && !commentsShowed) {
 			commentsShowed = true;
+
+			// create comments components
 			createComments({ articleId: id });
 		}
 	});
@@ -158,6 +172,7 @@ export const updateArticleDetail = async ({
 	PubSub.subscribe('reload-comments', () => {
 		updateComments({ articleId: id });
 	});
+
 };
 
 export default {

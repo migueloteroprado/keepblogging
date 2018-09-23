@@ -7,10 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production",
     "start": "webpack-dev-server --mode=development --hot --inline",
-    "server": "cd src/data && json-server --watch db.json --port 8000 --host localhost --delay=100",
+    "server": "cd src/data && json-server --watch db.json --port 8000 --host localhost --delay=0",
     "eslint": "node_modules/.bin/eslint ."
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/migueloteroprado/keepblogging.git"
@@ -57,6 +56,7 @@
     "moment": "^2.22.2",
     "pubsub-js": "^1.6.1",
     "query-string": "5.0.0",
+    "scrollreveal": "^4.0.4",
     "webpack-plugin-critical": "^1.0.0",
     "whatwg-fetch": "^3.0.0"
   }
